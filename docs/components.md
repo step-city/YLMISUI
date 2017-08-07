@@ -255,6 +255,10 @@ data :{
 
 ### yl-organizeTree
 
+**全局引入** ``` <yl-organizeTree ></yl-organizeTree>```
+
+#### 用法示例
+
 ```html
         <yl-organizeTree  
         v-model="formModel.order.orgId"  
@@ -271,7 +275,18 @@ data :{
             this.formModel.order.OrgName=data.text;
           }
 ```
+#### 事件
+
+
+| 名称        | 说明           |回调参数|
+| ------------- |:-------------:| -----:|
+| getCurrentNode      | 节点点击时触发 |为当前选中节点的data对象|
+
+
 ### queryContainer 预览明细查询
+
+
+#### 用法示例
 
 ```html
     <template slot="view" scope="scope">
@@ -312,6 +327,10 @@ methods: {
 ##  工具类
 
 ### <yl-toolbar> 
+
+**全局引入** ``` <yl-toolbar></yl-toolbar>```
+
+#### 用法示例
 
 ```html
     <yl-toolbar>
