@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>易龙软件开发前端框架说明文档</title>
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+  <!--主题-->
+  <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
+  <!--<link rel="stylesheet" href="//unpkg.com/docsify/themes/buble.css">
+  <link rel="stylesheet" href="//unpkg.com/docsify/themes/dark.css">
+  <link rel="stylesheet" href="//unpkg.com/docsify/themes/pure.css">-->
+
+</head>
+<body>
+  
+  <div id="app">加载中...</div>
+ 
+</body>
+<script>
+  window.$docsify = {
+
+    //通用配置
+    name: '目录',
+    repo: 'https://github.com/mlkj/YLMISUI.git',
+    loadSidebar: true,  //开启侧边栏
+    loadSidebar: '_sidebar.md',
+    subMaxLevel: 3,
+    loadNavbar: true,
+    loadNavbar: '_navbar.md',
+    coverpage: true,  //封面
+
+    //添加搜索插件
+    // 完整配置参数
+    search: {
+      maxAge: 86400000, // 过期时间，单位毫秒，默认一天
+      paths: 'auto', // or 'auto'
+      placeholder: '键入关键字查询',
+
+      // 支持本地化
+      placeholder: {
+        '/zh-cn/': '键入关键字查询',
+        '/': '键入关键字查询'
+      },
+
+      noData: '找不到结果！',
+
+      // 支持本地化
+      noData: {
+        '/zh-cn/': '找不到结果',
+        '/': '找不到结果'
+      }
+    }
+
+  }
+
+  if (typeof navigator.serviceWorker !== 'undefined') {
+    navigator.serviceWorker.register('sw.js')
+  }
+</script>
+<script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+<script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
+<script src="//unpkg.com/prismjs/components/prism-bash.js"></script>
+</html>

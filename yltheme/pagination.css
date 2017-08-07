@@ -1,0 +1,41 @@
+.el-pagination .el-select .el-input input {
+    padding-right: 25px;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+    height: 25px;
+}
+
+.el-pagination span, .el-pagination button {
+    display: inline-block;
+    font-size: 12px;
+    min-width: 28px;
+    height: 25px;
+    line-height: 25px;
+    vertical-align: top;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.el-pager li {
+    height: 25px;
+    line-height: 25px;
+}
+
+.el-pagination__editor {
+    border: 1px solid rgb(209, 219, 229);
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    line-height: 15px;
+    padding: 4px 2px;
+    text-align: center;
+    margin: 0 6px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: border .3s;
+    -moz-transition: border .3s;
+    transition: border .3s;
+}

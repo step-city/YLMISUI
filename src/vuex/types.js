@@ -1,0 +1,18 @@
+//账户
+export const COM_USERINFO = 'COM_USERINFO'
+export const COM_LOGINSTATUS='COM_LOGINSTATUS'
+export const COM_Token='COM_Token'
+
+
+//选材框值
+export const SEL_SELECTROWS='SEL_SELECTROWS'
+export const SEL_TYPE='SEL_TYPE'
+//快速预览
+export const ITEM_TABLECONFIG='ITEM_TABLECONFIG'
+export const ITEM_SELECTFILTER='ITEM_SELECTFILTER'
+export const ITEM_FUNCONFIG='ITEM_FUNCONFIG'
+export const ITEM_ISVISIBLE='ITEM_ISVISIBLE'
+
+
+//模块配置
+export const MODULE_CONF='MODULE_CONF'
