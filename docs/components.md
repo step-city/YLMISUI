@@ -110,10 +110,6 @@ data :{
 
 ### treeSelect
 
-> ###### 引用方式  
-
-**全局引入** ``` <yl-roleTree ></yl-roleTree>```
-
 #### 用法示例
 
 ##### 一般加载方式
@@ -252,35 +248,6 @@ data :{
 | ------------- |:-------------:| -----:|
 | getCurrentNode      | 节点点击时触发 |为当前选中节点的data对象|
 | nodeExpend      | 节点展开时触发，（只在stepByOne为true时有效） | 为当前选中节点的node对象 |
-
-### yl-organizeTree
-
-**全局引入** ``` <yl-organizeTree ></yl-organizeTree>```
-
-#### 用法示例
-
-```html
-        <yl-organizeTree  
-        v-model="formModel.order.orgId"  
-        :placeholder="'请选择单位'"   
-        :isexpand="true"
-        @getCurrentNode="_getCurrentNodeOrg"  
-        style="width:80%">
-        </yl-organizeTree>
-```
-
-```javascript
-        _getCurrentNodeOrg(data){
-             //组织机构选择事件
-            this.formModel.order.OrgName=data.text;
-          }
-```
-#### 事件
-
-
-| 名称        | 说明           |回调参数|
-| ------------- |:-------------:| -----:|
-| getCurrentNode      | 节点点击时触发 |为当前选中节点的data对象|
 
 
 ### queryContainer 预览明细查询

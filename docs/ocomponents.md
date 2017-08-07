@@ -177,7 +177,13 @@ import dataDictionaryForSel from 'ocomponents/datadictionary/dataDictionaryForSe
 
 
 ```html
-    <yl-organizeTree   v-model="value"></yl-organizeTree>
+         <yl-organizeTree  
+        v-model="formModel.order.orgId"  
+        :placeholder="'请选择单位'"   
+        :isexpand="true"
+        @getCurrentNode="_getCurrentNodeOrg"  
+        style="width:80%">
+        </yl-organizeTree>
 ```
 
 ```javascript
@@ -189,6 +195,10 @@ import organizeTree from 'ocomponents/organizeTree/organizeTree'
       }
      },
     methods:{
+              _getCurrentNodeOrg(data){
+             //组织机构选择事件
+            this.formModel.order.OrgName=data.text;
+          }
     },
     components:{
         'yl-organizeTree':organizeTree,
@@ -201,6 +211,7 @@ import organizeTree from 'ocomponents/organizeTree/organizeTree'
 | 参数        | 说明           |类型   |默认值|
 | ------------- |:-------------:| -----:|---:|
 | isexpand      | 是否一次性展开（只针对一次性加载方式使用） | Boolean |false |
+
 	
 
 #### 方法
