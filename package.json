@@ -6,7 +6,8 @@
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "docs": "docsify server docs ./docs --port 8087"
   },
   "dependencies": {
     "axios": "^0.15.3",
