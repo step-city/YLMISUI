@@ -116,6 +116,7 @@ data :{
 
 #### 用法示例
 
+##### 一般加载方式
 
 ```html
     <yl-treeselect 
@@ -163,8 +164,7 @@ data :{
    }
 ```
 
-###### 逐级加载方式
-
+##### 逐级加载方式
 
 ```html
     <yl-treeselect 
@@ -319,10 +319,179 @@ methods: {
     }
 
 ```
+##控件渲染器
 
+###表单控件渲染器
 
+控件渲染器主要根据传入配置渲染控件相关配置，主要作用于表单生成渲染，过滤器生成渲染，tableedit控件行内渲染。
 
+#### 用法示例
 
+```json
+
+    {
+            "val": "", //默认值
+            "title": "父节点", //显示标题 在表单渲染时有用
+            "name": "parentId", //绑定对象属性 
+            "type": "ghtree", //控件类型，在renderComs组件中是唯一的。
+            "op": "", //主要用于过滤器。配置过滤条件
+            "position": { //表单控件布局配置
+                            "spanNum": 12, //24列布局，当前控件占据的列数
+                            "alone": false,//是否独占一行
+                        },
+            "elmentConfig": { //控件的配置 控件的配置根据特定控件的参数而定，配置参照元素配置 
+                                "placeholder": "选择上级工号",
+                                "readonly": true
+                            },
+            "eventConf": {   //控件回调函数配置
+                            "ison": true,  //是否开启回调函数
+                            "blur": "function(node,_this){_this.formModel.fullName=node.fullName;}",  //blur 配置回调函数类型和函数函数体
+                            "init": "function(_this){console.log(_this)}"
+                         },
+              "rules": [    //表单验证规则配置
+                        {
+                            "required": true, 
+                            "message": "上级工号不能为空",
+                            "trigger": "change"
+                        }
+              ]
+   }
+```
+
+#### 控件配置说明
+
+##### input输入框配置
+
+```json
+      {
+    "val": "", //默认值
+    "name": "", //绑定对象属性 
+    "type": "input", //控件类型，在renderSelComs组件中是唯一的。
+    "op": "EQ", //配置过滤条件
+    "elmentConfig": { //控件的配置 控件的配置根据特定控件的参数而定，配置参照元素配置 
+                       "maxlength":10000,
+                       "minlength":0,
+                       "size":"small",//大小
+                       "disabled":false, //是否可用
+                       "type":"text", // text/textarea
+                       "placeholder":"", //输入提示字符
+                       "icon":"",  //图标
+                       "rows":"",  //行数 textarea 有效 
+                       "readonly":"", //是否可读
+                    },
+    "eventConf": {   //控件回调函数配置
+                    "isOn": true,  //是否开启回调函数
+                    "blur": "function(node,_this){}",  //blur 配置回调函数类型和函数函数体
+                                                       //参数说明：node为undefind在input控件中无用，_this为模块表单的实例对象。
+                    }
+   }
+
+```
+##### switch开关配置
+```json
+    {
+    "val": "", //默认值
+    "name": "", //绑定对象属性 
+    "type": "switch", //控件类型，在renderSelComs组件中是唯一的。
+    "op": "EQ", //配置过滤条件
+    "elmentConfig": { //控件的配置 控件的配置根据特定控件的参数而定，配置参照元素配置 
+                       "width":120,   //switch 的宽度（像素）
+                       "disabled":false,   //是否禁用
+                       "onColor":"small",//switch 打开时的背景色
+                       "offColor":false, //switch 关闭时的背景色
+                       "onText":"text", // switch 打开时的文字
+                       "offText":"", //switch 关闭时的文字
+                       "offValue":"",  //switch 关闭时的值
+                    },
+    "eventConf": {   //控件回调函数配置
+                    "isOn": true,  //是否开启回调函数
+                    "change": "function(node,_this){}",  //配置回调函数类型和函数函数体
+                                                       //参数说明：node为为change事件之后的参数，_this为模块表单的实例对象。
+                    }
+   }
+```
+
+##### inputNumber计数器配置
+
+```json
+      {
+    "val": "", //默认值
+    "name": "", //绑定对象属性 
+    "type": "inputNumber", //控件类型，在renderSelComs组件中是唯一的。
+    "op": "EQ", //配置过滤条件
+    "elmentConfig": { //控件的配置 控件的配置根据特定控件的参数而定，配置参照元素配置 
+                       "min":0,   //设置计数器允许的最小值
+                       "max":100000, //设置计数器允许的最大值
+                       "step":1,//计数器步长
+                       "disabled":false, //是否禁用
+                       "size":"small", //计数器尺寸
+                       "controls":"true", //是否使用控制按钮
+                    },
+    "eventConf": {   //控件回调函数配置
+                    "isOn": true,  //是否开启回调函数
+                    "change": "function(node,_this){}",  //blur 配置回调函数类型和函数函数体
+                                                       //参数说明：node为改变以后的值，_this为模块表单的实例对象。
+                    }
+   }
+```
+
+##### datePicker日期控件配置
+
+```json
+{
+    "val": "", //默认值
+    "name": "", //绑定对象属性 
+    "type": "datePicker", //控件类型，在renderSelComs组件中是唯一的。
+    "op": "EQ", //配置过滤条件
+    "elmentConfig": { //控件的配置 控件的配置根据特定控件的参数而定，配置参照元素配置 
+                       "type":"date",//显示类型  year/month/date/week/ datetime/datetimerange/daterange
+                       "disabled":false, //是否禁用
+                       "size":"small", //输入框尺寸
+                       "placeholder":"", //占位内容
+                       "format":"yyyy-MM-dd", //时间日期格式化
+                       "align":"left", //对齐方式
+                       "defaultValue":"", //可选，DatePicker打开时默认显示的时间
+                       "editable":true, //文本框可输入
+                       "clearable":true, //是否显示清除按钮
+                    },
+    "eventConf": {   //控件回调函数配置
+                    "isOn": true,  //是否开启回调函数
+                    "change": "function(node,_this){}",  //blur 配置回调函数类型和函数函数体
+                                                       //参数说明：node为格式化后的值，_this为模块表单的实例对象。
+                    }
+   }
+```
+##### treeselect选择树配置
+
+````json
+      {
+    "val": "", //默认值
+    "name": "", //绑定对象属性 
+    "type": "treeselect", //控件类型，在renderSelComs组件中是唯一的。
+    "op": "EQ", //配置过滤条件
+    "elmentConfig": { //控件的配置 控件的配置根据特定控件的参数而定，配置参照元素配置 
+                        "size":"small", //控件尺寸
+                        "defaultText":"", //是否有默认值  执针对逐步加载方式
+                        "readonly":false, //选入框是否只读
+                        "disabled":false, //是否禁用
+                        "placeholder":"", //占位字符
+                        "autofocus":false, //是否聚焦
+                        "nodeStateConf":[], //树渲染配置
+                        "stepByOne":false, //是否逐步加载模式
+                        "treedata":[], //绑定初始值
+                        "loaddata":[], //二次加载数据， 只针对逐步加载时有效
+                        "isexpand":true, //是否展开  只针对一次性加载时有效
+                        "defaultProps":{},  //绑定的对象结构
+                        "textOnly":false,  //文本模式
+                        "filterTextVisibe":true //是否显示筛选框
+                    },
+    "eventConf": {   //控件回调函数配置
+                    "isOn": true,  //是否开启回调函数
+                    "change": "function(node,_this){}",  //blur 配置回调函数类型和函数函数体
+                                                       //参数说明：node为选中节点对象，_this为模块表单的实例对象。
+                    }
+   }
+```
 
 ##  工具类
 
