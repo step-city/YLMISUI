@@ -48,7 +48,7 @@
                                 @click="item.clickEvent" >
                                 <i :class="item.icon"></i>{{item.text}}</el-button>
                     </el-button-group>
-             </yl-toolbar>
+             </yl-toolbar> 
         </div> 
          <div slot="secondbox" class="flexbox">  
                     <yl-table ref="table"

@@ -34,6 +34,7 @@
             <yl-toolbar>
                     <el-button-group ref="funtoolbar">
                             <el-button v-for="(item,index) in funBtnConf" 
+                                :key="index"
                                 :type="item.type" 
                                 :name="item.name" 
                                 :size="item.size" 

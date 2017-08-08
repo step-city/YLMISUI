@@ -23,7 +23,7 @@
                     </yl-toolbar>
                     <yl-toolbar>
                         <el-button-group ref="funtoolbar">
-                            <el-button v-for="(item,index) in funBtnConf" :type="item.type" :name="item.name" :size="item.size" v-permissionSetting="item.permissionSetting" v-show="item.isShow" :disabled="item.disabled" @click="item.clickEvent">
+                            <el-button v-for="(item,index) in funBtnConf" :key="index" :type="item.type" :name="item.name" :size="item.size" v-permissionSetting="item.permissionSetting" v-show="item.isShow" :disabled="item.disabled" @click="item.clickEvent">
                                 <i :class="item.icon"></i>{{item.text}}</el-button>
                         </el-button-group>
                     </yl-toolbar>

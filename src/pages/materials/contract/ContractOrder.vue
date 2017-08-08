@@ -34,7 +34,8 @@
             </yl-toolbar>
             <yl-toolbar>
                     <el-button-group ref="funtoolbar">
-                            <el-button v-for="(item,index) in funBtnConf" 
+                            <el-button v-for="(item,index) in funBtnConf"
+                                :key="index" 
                                 :type="item.type" 
                                 :name="item.name" 
                                 :size="item.size" 
@@ -60,8 +61,8 @@
                         </div>
                     </template>
                     <template slot="view" scope="scope"> 
-                            <el-tooltip placement="right"  :visible-arrow="false" :open-delay="500" :effect="'light'">
-                            <div slot="content" style="height:350px;max-width:800px">
+                            <el-tooltip placement="right-start"  :visible-arrow="false" :open-delay="500" :effect="'light'">
+                            <div slot="content" style="height:350px;max-width:800px;">
                                     <yl-table ref="tableItem"
                                         @reload="_itemReload(scope.row.id)"
                                         :configs="tableItemConfig" 
@@ -88,7 +89,7 @@
 <!--编辑界面-->
         <el-dialog ref="mainDialog" title="编辑" 
                  v-model="addFormVisible" size="large"  
-                 top="8%" 
+                 top="5%" 
                  :lock-scroll="true"
                  :close-on-press-escape="false"
                  :modal-append-to-body="false" 
@@ -101,8 +102,8 @@
 
  <!--预览打印界面-->
         <el-dialog ref="printDialog" title="预览打印"  
-                 v-model="printDialogVisible" size="full"  
-                 top="8%" 
+                 v-model="printDialogVisible" size="large"  
+                 top="5%" 
                  :lock-scroll="true"
                  :close-on-press-escape="false"
                  :modal-append-to-body="false" 
@@ -300,7 +301,7 @@ export default {
         },
         //预览单据接口
         _printPage(id){
-            this.reportUrl=config.reportUrl+"/ContractOrder.html?id="+id;
+            this.reportUrl= config.reportUrl + "/ContractOrder.html?id=" + id;
             this.printDialogVisible=true;
         },
         _funcState(){

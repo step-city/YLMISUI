@@ -175,7 +175,10 @@ Vue.prototype.IsJudgeRepeat = function (rule, value, callback){
 
 //获取用户信息
 Vue.prototype.getUserInfo=function(){
-      return JSON.parse(util.getCookie('userInfo'));
+      let result=util.getCookie('userInfo');
+      if(result){
+            return JSON.parse(result);
+      }
 }
 
 //生成guid 

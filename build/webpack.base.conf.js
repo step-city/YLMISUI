@@ -1,56 +1,29 @@
-// 使用 NodeJS 自带的文件路径插件
 var path = require('path')
-// 引入 config/index.js
-var config = require('../config')
-// 引入一些小工具
 var utils = require('./utils')
-// 拼接我们的工作区路径为一个绝对路径
-var projectRoot = path.resolve(__dirname, '../')
-// 将 NodeJS 环境作为我们的编译环境
-var env = process.env.NODE_ENV
-// check env & config/index.js to decide whether to enable CSS source maps for the
-// various preprocessor loaders added to vue-loader at the end of this file
-// 是否在 dev 环境下开启 cssSourceMap ，在 config/index.js 中可配置
-var cssSourceMapDev = (env === 'development' && config.dev.cssSourceMap)
-// 是否在 production 环境下开启 cssSourceMap ，在 config/index.js 中可配置
-var cssSourceMapProd = (env === 'production' && config.build.productionSourceMap)
-// 最终是否使用 cssSourceMap
-var useCssSourceMap = cssSourceMapDev || cssSourceMapProd
+var config = require('../config')
+var vueLoaderConfig = require('./vue-loader.conf')
 
-function resolve (dir) {
+function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
-//引入分离插件
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
-// vue中的css 会被打包到 app.css 中
-let appCSS = new ExtractTextPlugin('static/css/app.css');
 module.exports = {
   entry: {
-    // 编译文件入口
     app: './src/main.js'
   },
   output: {
-    // 编译输出的根路径
     path: config.build.assetsRoot,
-    // 正式发布环境下编译输出的发布路径
-    publicPath: process.env.NODE_ENV === 'production' ? config.build.assetsPublicPath : config.dev.assetsPublicPath,
-    // 编译输出的文件名
-    filename: '[name].js'
+    filename: '[name].js',
+    publicPath: process.env.NODE_ENV === 'production' ?
+      config.build.assetsPublicPath :
+      config.dev.assetsPublicPath
   },
   resolve: {
-    // 自动补全的扩展名
-    extensions: ['', '.js', '.vue', '.json'],
-     modules: [
-      resolve('src'),
-      resolve('node_modules')
-    ],
-    // 不进行自动补全或处理的文件或者文件夹
-    fallback: [path.join(__dirname, '../node_modules')],
+    extensions: ['.js', '.vue', '.json'],
     alias: {
+      'vue$': 'vue/dist/vue.esm.js',
+      '@': resolve('src'),
       // 默认路径代理，例如 import Vue from 'vue'，会自动到 'vue/dist/vue.common.js'中寻找
-      'vue$': 'vue/dist/vue.common.js',
-      '@': path.resolve('src'),
       'src': path.resolve(__dirname, '../src'),
       'common': path.resolve(__dirname, '../src/common'),
       'components': path.resolve(__dirname, '../src/components'),
@@ -60,64 +33,57 @@ module.exports = {
       'static': path.resolve(__dirname, '../static'),
     }
   },
-  resolveLoader: {
-    fallback: [path.join(__dirname, '../node_modules')]
-  },
   module: {
-    loaders: [
-      {
+    rules: [{
         test: /\.vue$/,
-        loader: 'vue'
+        loader: 'vue-loader',
+        options: vueLoaderConfig
       },
       {
         test: /\.js$/,
-        loader: 'babel',
-        include: projectRoot,
+        loader: 'babel-loader',
+        include: [resolve('src'), resolve('test')],
         exclude: /node_modules/
       },
       {
         test: /\.json$/,
-        loader: 'json'
+        loader: 'json-loader'
+      },
+      {
+        test: /\.css$/,
+        include: [
+          /src/, //表示在src目录下的css需要编译  
+          '/node_modules/element-ui/lib/', //增加此项  
+          '/yltheme/',
+          '/theme/',
+          '/nprogress/'
+        ],
+        loader: 'style-loader!css-loader'
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'url',
-        query: {
+        loader: 'url-loader',
+        options: {
           limit: 10000,
-          name: utils.assetsPath('./image/[name].[hash:7].[ext]')
+          name: utils.assetsPath('img/[name].[hash:7].[ext]')
+        }
+      },
+      {
+        test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: utils.assetsPath('media/[name].[hash:7].[ext]')
         }
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: 'url',
-        query: {
+        loader: 'url-loader',
+        options: {
           limit: 10000,
-          name: utils.assetsPath('./fonts/[name].[hash:7].[ext]')
+          name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
       }
     ]
-  },
-  stylus: {
-    use: [
-      require('autoprefixer-stylus')({
-        browsers: ["Chrome >= 1", "Safari >= 1", "Firefox >= 1", "ie >= 8"]
-      })
-    ]
-  },
-  postcss: [
-    require('autoprefixer')({
-      browsers: ["Chrome >= 1", "Safari >= 1", "Firefox >= 1", "ie >= 8"]
-    })
-  ],
-  vue: {
-    //  loaders: utils.cssLoaders({ sourceMap: useCssSourceMap })
-    loaders: utils.cssLoaders({
-      extract: true,
-      sourceMap: useCssSourceMap,
-      ExtractPlugin: appCSS
-    })
-  },
-  plugins: [
-    appCSS, // 设置插件
-  ]
+  }
 }

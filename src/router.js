@@ -44,46 +44,46 @@ import Router from 'vue-router';
     //物资系统---消耗物资管理
         const singleTable = resolve => require(['./pages/config/singletable/singleTable.vue'], resolve);
         const GHInitialPlan = resolve => require(['./pages/materials/ghinitialplan/GHInitialPlan.vue'], resolve);
-        // const RequistionInOrder = resolve => require(['./pages/materials/requistionin/RequistionInOrder.vue'], resolve);
-        // const ContractOrder = resolve => require(['./pages/materials/contract/ContractOrder.vue'], resolve);
-        // const ReceiveOrder = resolve => require(['./pages/materials/receive/ReceiveOrder.vue'], resolve);
-        // const CurrentStore = resolve => require(['./pages/materials/currentstore/CurrentStore.vue'], resolve);
-        // const DeliveryOrder = resolve => require(['./pages/materials/delivery/DeliveryOrder.vue'], resolve);
-        // const AllotOrder = resolve => require(['./pages/materials/allot/AllotOrder.vue'], resolve);
-        // const ScrapOrder = resolve => require(['./pages/materials/scrap/ScrapOrder.vue'], resolve);
-        // const RequistionInCheckOrder = resolve => require(['./pages/materials/requistionincheck/RequistionInCheckOrder.vue'], resolve);
-        // const RequistionInNotQulifyOrder = resolve => require(['./pages/materials/requistioninnotqulify/RequistionInNotQulifyOrder.vue'], resolve);
-        // const AllotInOrder = resolve => require(['./pages/materials/allotin/AllotInOrder.vue'], resolve);
-        // const PurchasePlanOrder = resolve => require(['./pages/materials/purchaseplan/PurchasePlanOrder.vue'], resolve);
-        // const ChargeAgainst = resolve => require(['./pages/materials/chargeagainst/ChargeAgainst.vue'], resolve);
+        const RequistionInOrder = resolve => require(['./pages/materials/requistionin/RequistionInOrder.vue'], resolve);
+        const ContractOrder = resolve => require(['./pages/materials/contract/ContractOrder.vue'], resolve);
+        const ReceiveOrder = resolve => require(['./pages/materials/receive/ReceiveOrder.vue'], resolve);
+        const CurrentStore = resolve => require(['./pages/materials/currentstore/CurrentStore.vue'], resolve);
+        const DeliveryOrder = resolve => require(['./pages/materials/delivery/DeliveryOrder.vue'], resolve);
+        const AllotOrder = resolve => require(['./pages/materials/allot/AllotOrder.vue'], resolve);
+        const ScrapOrder = resolve => require(['./pages/materials/scrap/ScrapOrder.vue'], resolve);
+        const RequistionInCheckOrder = resolve => require(['./pages/materials/requistionincheck/RequistionInCheckOrder.vue'], resolve);
+        const RequistionInNotQulifyOrder = resolve => require(['./pages/materials/requistioninnotqulify/RequistionInNotQulifyOrder.vue'], resolve);
+        const AllotInOrder = resolve => require(['./pages/materials/allotin/AllotInOrder.vue'], resolve);
+        const PurchasePlanOrder = resolve => require(['./pages/materials/purchaseplan/PurchasePlanOrder.vue'], resolve);
+        const ChargeAgainst = resolve => require(['./pages/materials/chargeagainst/ChargeAgainst.vue'], resolve);
     //  成本分析-- 消耗物资成本分析
-    //     const GHMonthConsumptionOrder = resolve => require(['./pages/materials/ghmonthconsumption/GHMonthConsumptionOrder.vue'], resolve);
-    //     const LabourMonthConsumptionOrder = resolve => require(['./pages/materials/labourmonthconsumption/LabourMonthConsumptionOrder.vue'], resolve);
-    // //半成品管理--钢筋加工管理
-    //     const SFProductMaterialsOrder = resolve => require(['./pages/materials/sfproductmaterials/SFProductMaterialsOrder.vue'], resolve);
-    //     const OriginalMaterialReceiveOrder = resolve => require(['./pages/materials/originalmaterialreceive/OriginalMaterialReceiveOrder.vue'], resolve);
-    //     const SFProductRegistrationOrder = resolve => require(['./pages/materials/sfproductregistration/SFProductRegistrationOrder.vue'], resolve);
-    //     const SFProductDeliveryOrder = resolve => require(['./pages/materials/sfproductdelivery/SFProductDeliveryOrder.vue'], resolve);
-    //     const OriginalMaterialCheck = resolve => require(['./pages/materials/originalmaterialcheck/OriginalMaterialCheck.vue'], resolve);
-    //     const SFProductCheck = resolve => require(['./pages/materials/sfproductcheck/SFProductCheck.vue'], resolve);
-    //     const SFProductScrap = resolve => require(['./pages/materials/sfproductscrap/SFProductScrap.vue'], resolve);
-    //     const SFProductInventory = resolve => require(['./pages/materials/sfproductinventory/SFProductInventory.vue'], resolve);
-    // //半成品管理--混凝土管理      
-    //     const LopItem = resolve => require(['./pages/materials/lopitem/LopItem.vue'], resolve);
-    //     const WeightItem = resolve => require(['./pages/materials/weightitem/WeightItem.vue'], resolve);
-    //     const ConcreteAnalyze = resolve => require(['./pages/materials/concreteanalyze/ConcreteAnalyze.vue'], resolve);
-    //     const MaterialAnalyze = resolve => require(['./pages/materials/materialanalyze/MaterialAnalyze.vue'], resolve);
-    //     const StoreCheckOrder = resolve => require(['./pages/materials/storecheck/StoreCheckOrder.vue'], resolve);
-    //     const ConcreteDeliveryOrder = resolve => require(['./pages/materials/concretedelivery/ConcreteDeliveryOrder.vue'], resolve);
-    // //周转材料管理--摊销管理
-    //     const TurnoverReceiveOrder = resolve => require(['./pages/materials/turnoverreceive/TurnoverReceiveOrder.vue'], resolve);
-    //     const TurnoverAllotInOrder = resolve => require(['./pages/materials/turnoverallotIn/TurnoverAllotInOrder.vue'], resolve);
-    //     const TurnoverAmortizeRuleOrder = resolve => require(['./pages/materials/turnoveramortizerule/TurnoverAmortizeRuleOrder.vue'], resolve);
-    //     const TurnoverAmortizeOrder = resolve => require(['./pages/materials/turnoveramortize/TurnoverAmortizeOrder.vue'], resolve);
-    //     const TurnoverScrapOrder = resolve => require(['./pages/materials/turnoverscrap/TurnoverScrapOrder.vue'], resolve);
-    //     const TurnoverAllotOrder = resolve => require(['./pages/materials/turnoverallot/TurnoverAllotOrder.vue'], resolve);
-    //     const TurnoverSellOrder = resolve => require(['./pages/materials/turnoversell/TurnoverSellOrder.vue'], resolve);
-    //     const TurnoverInventory = resolve => require(['./pages/materials/turnoverinventory/TurnoverInventory.vue'], resolve);
+        const GHMonthConsumptionOrder = resolve => require(['./pages/materials/ghmonthconsumption/GHMonthConsumptionOrder.vue'], resolve);
+        const LabourMonthConsumptionOrder = resolve => require(['./pages/materials/labourmonthconsumption/LabourMonthConsumptionOrder.vue'], resolve);
+    //半成品管理--钢筋加工管理
+        const SFProductMaterialsOrder = resolve => require(['./pages/materials/sfproductmaterials/SFProductMaterialsOrder.vue'], resolve);
+        const OriginalMaterialReceiveOrder = resolve => require(['./pages/materials/originalmaterialreceive/OriginalMaterialReceiveOrder.vue'], resolve);
+        const SFProductRegistrationOrder = resolve => require(['./pages/materials/sfproductregistration/SFProductRegistrationOrder.vue'], resolve);
+        const SFProductDeliveryOrder = resolve => require(['./pages/materials/sfproductdelivery/SFProductDeliveryOrder.vue'], resolve);
+        const OriginalMaterialCheck = resolve => require(['./pages/materials/originalmaterialcheck/OriginalMaterialCheck.vue'], resolve);
+        const SFProductCheck = resolve => require(['./pages/materials/sfproductcheck/SFProductCheck.vue'], resolve);
+        const SFProductScrap = resolve => require(['./pages/materials/sfproductscrap/SFProductScrap.vue'], resolve);
+        const SFProductInventory = resolve => require(['./pages/materials/sfproductinventory/SFProductInventory.vue'], resolve);
+    //半成品管理--混凝土管理      
+        const LopItem = resolve => require(['./pages/materials/lopitem/LopItem.vue'], resolve);
+        const WeightItem = resolve => require(['./pages/materials/weightitem/WeightItem.vue'], resolve);
+        const ConcreteAnalyze = resolve => require(['./pages/materials/concreteanalyze/ConcreteAnalyze.vue'], resolve);
+        const MaterialAnalyze = resolve => require(['./pages/materials/materialanalyze/MaterialAnalyze.vue'], resolve);
+        const StoreCheckOrder = resolve => require(['./pages/materials/storecheck/StoreCheckOrder.vue'], resolve);
+        const ConcreteDeliveryOrder = resolve => require(['./pages/materials/concretedelivery/ConcreteDeliveryOrder.vue'], resolve);
+    //周转材料管理--摊销管理
+        const TurnoverReceiveOrder = resolve => require(['./pages/materials/turnoverreceive/TurnoverReceiveOrder.vue'], resolve);
+        const TurnoverAllotInOrder = resolve => require(['./pages/materials/turnoverallotIn/TurnoverAllotInOrder.vue'], resolve);
+        const TurnoverAmortizeRuleOrder = resolve => require(['./pages/materials/turnoveramortizerule/TurnoverAmortizeRuleOrder.vue'], resolve);
+        const TurnoverAmortizeOrder = resolve => require(['./pages/materials/turnoveramortize/TurnoverAmortizeOrder.vue'], resolve);
+        const TurnoverScrapOrder = resolve => require(['./pages/materials/turnoverscrap/TurnoverScrapOrder.vue'], resolve);
+        const TurnoverAllotOrder = resolve => require(['./pages/materials/turnoverallot/TurnoverAllotOrder.vue'], resolve);
+        const TurnoverSellOrder = resolve => require(['./pages/materials/turnoversell/TurnoverSellOrder.vue'], resolve);
+        const TurnoverInventory = resolve => require(['./pages/materials/turnoverinventory/TurnoverInventory.vue'], resolve);
 Vue.use(Router);
 export default new Router({
 routes:[
@@ -148,45 +148,45 @@ routes:[
        //消耗物资管理
         { path: 'singletable/:tableName', component: singleTable, name: '单页面配置'  },
         { path: 'ghinitialplan', component: GHInitialPlan, name: '工号总需用计划'  },
-        // { path: 'purchaseplan', component: PurchasePlanOrder, name: '采购计划'  },
-        // { path: 'contract', component: ContractOrder, name: '采购合同'  },
-        // { path: 'requistionin', component: RequistionInOrder, name: '进料登记'  },
-        // { path: 'requistionincheck', component: RequistionInCheckOrder, name: '送检登记'  },
-        // { path: 'requistioninnotqulify', component: RequistionInNotQulifyOrder, name: '不合格登记'},
-        // { path: 'receive/:type', component: ReceiveOrder, name: '点收单'  },
-        // { path: 'current', component: CurrentStore, name: '库存管理'  },
-        // { path: 'delivery/:type', component: DeliveryOrder, name: '发料单'  },
-        // { path: 'scrap', component: ScrapOrder, name: '报废单'  },
-        // { path: 'allot/:type', component: AllotOrder, name: '调拨单'  },
-        // { path: 'allotin', component: AllotInOrder, name: '调入单'  },
+        { path: 'purchaseplan', component: PurchasePlanOrder, name: '采购计划'  },
+        { path: 'contract', component: ContractOrder, name: '采购合同'  },
+        { path: 'requistionin', component: RequistionInOrder, name: '进料登记'  },
+        { path: 'requistionincheck', component: RequistionInCheckOrder, name: '送检登记'  },
+        { path: 'requistioninnotqulify', component: RequistionInNotQulifyOrder, name: '不合格登记'},
+        { path: 'receive/:type', component: ReceiveOrder, name: '点收单'  },
+        { path: 'current', component: CurrentStore, name: '库存管理'  },
+        { path: 'delivery/:type', component: DeliveryOrder, name: '发料单'  },
+        { path: 'scrap', component: ScrapOrder, name: '报废单'  },
+        { path: 'allot/:type', component: AllotOrder, name: '调拨单'  },
+        { path: 'allotin', component: AllotInOrder, name: '调入单'  },
     //周转材料管理--摊销管理
-    //     { path: 'turnoverreceive', component: TurnoverReceiveOrder, name: '周转收料单'  },
-    //     { path: 'turnoverallotIn', component: TurnoverAllotInOrder, name: '周转调入单'  },
-    //     { path: 'turnoveramortizerule', component: TurnoverAmortizeRuleOrder, name: '摊销规则'  },
-    //     { path: 'turnoveramortize', component: TurnoverAmortizeOrder, name: '摊销单'  },
-    //     { path: 'turnoverallot', component: TurnoverAllotOrder, name: '调出单'  },
-    //     { path: 'turnoverscrap', component: TurnoverScrapOrder, name: '周转材料报废单'  },
-    //     { path: 'turnoversell', component: TurnoverSellOrder, name: '让售单'  },
-    //     { path: 'turnoverinventory', component: TurnoverInventory, name: '周转材料库存'  },
-    // //半成品管理--钢筋加工管理
-    //     { path: 'sfproductmaterials', component: SFProductMaterialsOrder, name: '半成品材料库'  },
-    //     { path: 'originalmaterialreceive', component: OriginalMaterialReceiveOrder, name: '原材料收料单'  },
-    //     { path: 'sfproductregistration', component: SFProductRegistrationOrder, name: '半成品登记'  },
-    //     { path: 'sfproductdelivery', component: SFProductDeliveryOrder, name: '半成品发料单'  },
-    //     { path: 'originalmaterialcheck', component: OriginalMaterialCheck, name: '原材料盘点单'  },
-    //     { path: 'sfproductcheck', component: SFProductCheck, name: '半成品盘点单'  },
-    //     { path: 'sfproductscrap', component: SFProductScrap, name: '废料单'  },
-    //     { path: 'sfproductinventory', component: SFProductInventory, name: '半成品库存'  },
-    // //半成品管理--混凝土管理
-    //     { path: 'lopitem', component: LopItem, name: '机楼生产数据'  },
-    //     { path: 'weightitem', component: WeightItem, name: '收料数据'  },
-    //     { path: 'materialanalyze', component: MaterialAnalyze, name: '原材料节超分析'  },
-    //     { path: 'concreteanalyze', component: ConcreteAnalyze, name: '混凝土节超分析'  },
-    //     { path: 'storecheck', component: StoreCheckOrder, name: '混凝土出料数据'  },  
-    //     { path: 'concretedelivery', component: ConcreteDeliveryOrder, name: '原材料盘点'  },
-    // //成本分析-- 消耗物资成本分析
-    //     { path: 'ghmonthconsumption', component: GHMonthConsumptionOrder, name: '工号月应耗量'  }, 
-    //     { path: 'labourmonthconsumption', component: LabourMonthConsumptionOrder, name: '用料单位月应耗量'  },
+        { path: 'turnoverreceive', component: TurnoverReceiveOrder, name: '周转收料单'  },
+        { path: 'turnoverallotIn', component: TurnoverAllotInOrder, name: '周转调入单'  },
+        { path: 'turnoveramortizerule', component: TurnoverAmortizeRuleOrder, name: '摊销规则'  },
+        { path: 'turnoveramortize', component: TurnoverAmortizeOrder, name: '摊销单'  },
+        { path: 'turnoverallot', component: TurnoverAllotOrder, name: '调出单'  },
+        { path: 'turnoverscrap', component: TurnoverScrapOrder, name: '周转材料报废单'  },
+        { path: 'turnoversell', component: TurnoverSellOrder, name: '让售单'  },
+        { path: 'turnoverinventory', component: TurnoverInventory, name: '周转材料库存'  },
+    //半成品管理--钢筋加工管理
+        { path: 'sfproductmaterials', component: SFProductMaterialsOrder, name: '半成品材料库'  },
+        { path: 'originalmaterialreceive', component: OriginalMaterialReceiveOrder, name: '原材料收料单'  },
+        { path: 'sfproductregistration', component: SFProductRegistrationOrder, name: '半成品登记'  },
+        { path: 'sfproductdelivery', component: SFProductDeliveryOrder, name: '半成品发料单'  },
+        { path: 'originalmaterialcheck', component: OriginalMaterialCheck, name: '原材料盘点单'  },
+        { path: 'sfproductcheck', component: SFProductCheck, name: '半成品盘点单'  },
+        { path: 'sfproductscrap', component: SFProductScrap, name: '废料单'  },
+        { path: 'sfproductinventory', component: SFProductInventory, name: '半成品库存'  },
+    //半成品管理--混凝土管理
+        { path: 'lopitem', component: LopItem, name: '机楼生产数据'  },
+        { path: 'weightitem', component: WeightItem, name: '收料数据'  },
+        { path: 'materialanalyze', component: MaterialAnalyze, name: '原材料节超分析'  },
+        { path: 'concreteanalyze', component: ConcreteAnalyze, name: '混凝土节超分析'  },
+        { path: 'storecheck', component: StoreCheckOrder, name: '混凝土出料数据'  },  
+        { path: 'concretedelivery', component: ConcreteDeliveryOrder, name: '原材料盘点'  },
+    //成本分析-- 消耗物资成本分析
+        { path: 'ghmonthconsumption', component: GHMonthConsumptionOrder, name: '工号月应耗量'  }, 
+        { path: 'labourmonthconsumption', component: LabourMonthConsumptionOrder, name: '用料单位月应耗量'  },
 
      {path: '*',component: Page404} 
     ] 

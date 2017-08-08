@@ -11,6 +11,7 @@
 							<el-select v-model="LoginForm.appCode" placeholder="请选择系统" size="large" style="width:270px" @change="_selectMneuApp">
 								<el-option
 									v-for="item in menuAppList"
+									:key="item.id"
 									:label="item.appName"
 									:value="item.appCode">
 								</el-option>
@@ -131,7 +132,6 @@ export default {
 				_requestGetMenuAppList(){
 					requestGetMenuAppList().then(data => {
 								this.menuAppList=data.result;
-								console.log(data.result)
 					})
 				},
 				_selectMneuApp(val){

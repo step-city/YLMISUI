@@ -3,7 +3,7 @@
             <div slot="fristbox">
                 <yl-toolbar>
                         <el-form :inline="true"  >
-                                <el-form-item class="form-content-vertical" v-for="item in filter.formConfig">
+                                <el-form-item class="form-content-vertical" v-for="item in filter.formConfig" :key="item.id">
                                          <yl-renderComs :option="item"></yl-renderComs>
                                 </el-form-item>
                                 <el-form-item class="form-content-vertical">

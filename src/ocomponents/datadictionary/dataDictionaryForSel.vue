@@ -5,6 +5,7 @@
                style="width:100%">
         <el-option
             v-for="item in data"
+            :key="item.id"
             :label="item.text"
             :value="item.text">
         </el-option>

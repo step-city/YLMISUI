@@ -1,5 +1,6 @@
 <template>
     <div style="height:100%;">
+         <yl-provincecity   v-model="value"></yl-provincecity>
         <yl-panelpage :reloadIsShow="true" titleName="测试" :icon="'icon-search'">
             <div slot="content">
                 <yl-layout>
@@ -87,6 +88,7 @@
 </template>
 
  <script type="text/babel">
+import provincecity from 'ocomponents/provincecity/provinceCitySelTree.vue'
 import organizeTree from 'ocomponents/organize/organizeTree';
 import { inputModel } from 'api/inputmodel';
 import GHTree from 'ocomponents/gh/GHTree';
@@ -107,6 +109,7 @@ import Edit from './pages/materials/ghinitialplan/Edit';
 export default {
     data() {
         return {
+            value:'',
             selectNode: {},
             searchModel: {
                 orderCode: '',
@@ -380,6 +383,7 @@ export default {
         },
     },
     components: {
+        'yl-provincecity':provincecity,
         'yl-ghtree': GHTree,
         'yl-organizeTree': organizeTree,
         roleApprove,
@@ -397,11 +401,11 @@ export default {
                         }
                     },
                     columns: [
-                        { attr: { type: 'index', label: '序号', width: 65, align: 'center', showOverflowTooltip: false } },
+                        { attr: { type: 'index', label: '序号', width: 65, align: 'center', showOverflowTooltip: false } },//当内容过长被隐藏时显示 tooltip
                         { attr: { prop: 'orderId', label: '明细', width: 65, align: 'center', scopedSlot: 'id', showOverflowTooltip: false } },
                         { attr: { prop: 'orderId', label: '预览', width: 65, align: 'center', scopedSlot: 'view', showOverflowTooltip: false } },
                         { attr: { prop: 'orderId', label: '状态', width: 65, align: 'center', scopedSlot: 'approve', showOverflowTooltip: false } },
-                        { attr: { prop: 'isAudit', label: '审核状态', width: 100, scopedSlot: 'isAudit' } },
+                        { attr: { prop: 'isAudit', label: '审核状态', width: 100, scopedSlot: 'isAudit' } }, //scopedSlot具名关联名称
                         { attr: { prop: 'orderDate', label: '计划年份', width: 90, } },
                         { attr: { prop: 'orderCode',sortable : true , label: '单据编号', width: 130, } },
                         { attr: { prop: 'planType', label: '设计类型', width: 100, scopedSlot: 'planType' } },
