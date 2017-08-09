@@ -68,7 +68,7 @@
 <script type="text/babel">
 import Edit from './FunctionEdit';
 import util from 'common/js/util';
-import treeMixn from '@/mixns/tree.js';
+import treeMixn from 'src/mixns/tree.js';
 import  {inputModel,requestGetPermissionShow} from 'api/inputmodel';
 import {
             requestGetFunctionPageList,

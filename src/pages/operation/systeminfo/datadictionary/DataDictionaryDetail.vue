@@ -68,7 +68,7 @@
 import Edit from './DataDictionaryDetailEdit';
 import util from 'common/js/util';
 import  {inputModel} from 'api/inputmodel';
-import treeMixn from '@/mixns/tree.js';
+import treeMixn from 'src/mixns/tree.js';
 import {
             requestGetDataDictionaryDetailPageList,
         }   from 'api/datadictionarydetail';

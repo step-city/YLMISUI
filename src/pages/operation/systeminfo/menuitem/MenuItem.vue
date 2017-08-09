@@ -70,7 +70,7 @@
 <script type="text/babel">
 import Edit from './MenuItemEdit';
 import util from 'common/js/util';
-import treeMixn from '@/mixns/tree.js';
+import treeMixn from 'src/mixns/tree.js';
 import {    
             requestGetMenuItemTreeList,
             requestGetMenuItemPageList,

@@ -393,7 +393,8 @@ export default {
                 
                 //判断审核按钮状态
                  let nowState=this.selectRows[0].isState;
-                 if(Number(this.approveSateInfo.stateValue)+10>=nowState){
+                 let result=this.approveSateInfo
+                 if(result && Number(result.stateValue)+10 >= nowState){
                             this.funBtnConf['approve'].disabled=true;
                         }else{
                             this.funBtnConf['approve'].disabled=false;

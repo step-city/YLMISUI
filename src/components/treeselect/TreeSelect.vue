@@ -40,7 +40,7 @@
 </template>
 
 <script type="text/babel">
-import treeMixn from '@/mixns/tree.js';
+import treeMixn from 'src/mixns/tree.js';
 import util from 'common/js/util'
 export default {
     name: 'YlTreeSelect',

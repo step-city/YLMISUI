@@ -23,7 +23,7 @@
 </template>
 
 <script type="text/babel">
-import treeMixn from '@/mixns/tree.js';
+import treeMixn from 'src/mixns/tree.js';
 import {requestGetStandardGHByParent} from 'api/standardgh';
 export default {
     mixins: [treeMixn],

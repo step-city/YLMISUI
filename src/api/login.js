@@ -52,3 +52,19 @@ import config from 'static/js/config';
             data: params
         })
     };  
+
+          export function requestReturnSystemRoam(params) {
+        return fetch({ 
+            url: '/api/services/app/session/ReturnSystemRoam',
+            method: 'post',
+            data: params
+        })
+    };  
+
+          export function requestSystemRoam(params) {
+        return fetch({ 
+            url: '/api/services/app/session/SystemRoam',
+            method: 'post',
+            data: params
+        })
+    };  

@@ -72,7 +72,7 @@
 <script type="text/babel">
 import Edit from './RoleApproveStateEdit';
 import util from 'common/js/util';
-import treeMixn from '@/mixns/tree.js';
+import treeMixn from 'src/mixns/tree.js';
 import  {inputModel} from 'api/inputmodel';
 import {
             requestGetRoleApproveStatePageList,

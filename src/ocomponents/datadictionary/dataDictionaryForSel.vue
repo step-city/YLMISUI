@@ -15,7 +15,7 @@
 <script type="text/babel">
 import util from 'common/js/util';
 import fetch from 'api/fetch';
-import emitter from '@/mixns';
+import emitter from 'src/mixns';
 export default {
     name: 'YlDataDictionaryForSel',
     componentName: 'YlDataDictionaryForSel',

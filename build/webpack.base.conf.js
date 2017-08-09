@@ -3,6 +3,7 @@ var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
 
+
 function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
@@ -22,15 +23,15 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('src'),
       // 默认路径代理，例如 import Vue from 'vue'，会自动到 'vue/dist/vue.common.js'中寻找
-      'src': path.resolve(__dirname, '../src'),
-      'common': path.resolve(__dirname, '../src/common'),
-      'components': path.resolve(__dirname, '../src/components'),
-      'ocomponents': path.resolve(__dirname, '../src/ocomponents'),
-      'pages': path.resolve(__dirname, '../src/pages'),
-      'api': path.resolve(__dirname, '../src/api'),
-      'static': path.resolve(__dirname, '../static'),
+      'src': resolve('src'),
+      '@': resolve('src'),
+      'common': resolve('src/common'),
+      'components': resolve('src/components'),
+      'ocomponents': resolve('src/ocomponents'),
+      'pages': resolve('src/pages'),
+      'api': resolve('src/api'),
+      'static': resolve('static'),
     }
   },
   module: {
@@ -42,7 +43,6 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('test')],
         exclude: /node_modules/
       },
       {
@@ -52,7 +52,7 @@ module.exports = {
       {
         test: /\.css$/,
         include: [
-          /src/, //表示在src目录下的css需要编译  
+          '/src/', //表示在src目录下的css需要编译  
           '/node_modules/element-ui/lib/', //增加此项  
           '/yltheme/',
           '/theme/',

@@ -23,7 +23,7 @@
 </template>
 
 <script type="text/babel">
-import treeMixn from '@/mixns/tree.js';
+import treeMixn from 'src/mixns/tree.js';
 import {requestGetMaterialClassByParent} from 'api/materialclass'
 export default {
     mixins: [treeMixn],

@@ -7,7 +7,7 @@
                                          <yl-renderComs :option="item"></yl-renderComs>
                                 </el-form-item>
                                 <el-form-item class="form-content-vertical">
-                                      <el-button type="primary" icon="search" size="small"  @click="_reload">查 询a</el-button>
+                                      <el-button type="primary" icon="search" size="small"  @click="_reload">查 询</el-button>
                                 </el-form-item>
                         </el-form>
                 </yl-toolbar>

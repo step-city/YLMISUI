@@ -14,17 +14,5 @@ module.exports = {
     source: 'src',
     img: 'src',
     image: 'xlink:href'
-  },
-   stylus: {
-    use: [
-      require('autoprefixer-stylus')({
-        browsers: ["Chrome >= 1", "Safari >= 1", "Firefox >= 1", "ie >= 8"]
-      })
-    ]
-  },
-  postcss: [
-    require('autoprefixer')({
-      browsers: ["Chrome >= 1", "Safari >= 1", "Firefox >= 1", "ie >= 8"]
-    })
-  ]
+  }
 }
