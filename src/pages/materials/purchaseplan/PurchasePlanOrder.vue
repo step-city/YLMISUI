@@ -60,7 +60,7 @@
                         </div>
                     </template>
                     <template slot="view" scope="scope"> 
-                            <el-tooltip placement="right"  :visible-arrow="false" :open-delay="500" :effect="'light'">
+                            <el-tooltip placement="right-start"  :visible-arrow="false" :open-delay="500" :effect="'light'">
                             <div slot="content" style="height:350px;max-width:800px">
                                     <yl-table ref="tableItem"
                                         @reload="_itemReload(scope.row.id)"
@@ -101,8 +101,8 @@
 
  <!--预览打印界面-->
         <el-dialog ref="printDialog" title="预览打印"  
-                 v-model="printDialogVisible" size="full"  
-                 top="8%" 
+                 v-model="printDialogVisible" size="large"  
+                 top="5%" 
                  :lock-scroll="true"
                  :close-on-press-escape="false"
                  :modal-append-to-body="false" 

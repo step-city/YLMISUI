@@ -10,7 +10,7 @@
                                 v-model="searchModel.orgId"  
                                 :placeholder="'请选择单位'" 
                                 size="small"  
-                                :isexpand="true" 
+                                :isexpand="false" 
                                 style="width:180px">
                                 </yl-organizeTree>      
                               </el-form-item>

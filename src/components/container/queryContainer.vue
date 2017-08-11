@@ -30,6 +30,7 @@
 import {inputModel} from 'api/inputmodel';
 import fetch from  'api/fetch';
 export default {
+    name:'yl-querycontainer',
     data(){
         return {
              selectRows:[],

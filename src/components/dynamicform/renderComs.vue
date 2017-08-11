@@ -66,6 +66,7 @@
 
 <script type="text/babel">
 export default {
+    name:'yl-renderComs',
     data(){
         return{
             DatePickerParams:{

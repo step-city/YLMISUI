@@ -12,7 +12,6 @@
       </el-col>
  </el-row>
   <el-form  :model="formModel.order"  :rules="rules" ref="formModel" label-width="100px" >
-
      <el-row>
            <el-col :span="8"> 
                     <el-form-item label="计划单位" prop="orgId">
@@ -161,7 +160,7 @@ export default {
                         planType: [
                             { required: true, message: '请选择计划类型', trigger: 'change' },
                         ],
-                        ghId: [
+                        ghId: [                                //change提交后提示，blur焦点离开及时提示
                             { required: true, message: '请选择工号', trigger: 'change' }
                         ],
                         orgId: [

@@ -1,146 +1,172 @@
 <template>
-   <yl-panelpage :titleName="'系统门户'" :fullscreenisShow="true" :icon="'icon-library'">
-	<div slot="content">
-		<div class="home">
+	<yl-panelpage :titleName="'系统门户'" :fullscreenisShow="true" :icon="'icon-library'">
+		<div slot="content">
+			<div class="home">
 				<div class="userinfo">
 					<div class="user">
 						<img src="../common/image/personal.png" class="userimg">
 						<div class="userwrapper">
-								<div class="username">
-								<span class="name"> {{getUserInfo.user.realName}},欢迎您！</span> —— <span class="rolename"><i class="icon-users"></i> {{getUserInfo.user.roleName}}</span>
-								</div>
-							<p class="department"><i class="icon-office"></i>  {{getUserInfo.user.manageOrgName}}</p>
-
-							<p class="lastlogintime"><i class="icon-clock"></i>  上次登录时间： {{getUserInfo.user.lastLoginTime |formatDate('llll')}}</p>
-
+							<div class="username">
+								<span class="name"> {{getUserInfo.user.realName}},欢迎您！</span> ——
+								<span class="rolename">
+									<i class="icon-users"></i> {{getUserInfo.user.roleName}}</span>
+							</div>
+							<p class="department">
+								<i class="icon-office"></i> {{getUserInfo.user.manageOrgName}}</p>
+	
+							<p class="lastlogintime">
+								<i class="icon-clock"></i> 上次登录时间： {{getUserInfo.user.lastLoginTime |formatDate('llll')}}</p>
+	
 						</div>
 					</div>
 					<div class="menu">
-						<div class="message" ><i class="icon-bubbles"></i>消息通知</div>
-						<div class="setting"><i class="icon-cog"></i>个人设置</div>	
-						<div class="agent" ><i class="icon-mail3"></i>代办事项</div>
-						<div class="tool"><i class="icon-books"></i>系统指南</div>
+						<div class="message">
+							<i class="icon-bubbles"></i>消息通知</div>
+						<div class="setting">
+							<i class="icon-cog"></i>个人设置</div>
+						<div class="agent">
+							<i class="icon-mail3"></i>代办事项</div>
+						<div class="tool">
+							<i class="icon-books"></i>系统指南</div>
 					</div>
 				</div>
 				<div class="datawrapper">
 					<div class="report">
-							<ul class="totalNum">
-								<li class="totcount blue">
-									<p class="total">
+						<ul class="totalNum">
+							<li class="totcount blue">
+								<p class="total">
 									<countTo :startVal='startVal' :endVal='endVal' :duration='2000'></countTo>万元
-									</p>
-									<p class="titleName">累计收料额</p>
-									<div class="bottomtitle">
+								</p>
+								<p class="titleName">累计收料额</p>
+								<div class="bottomtitle">
 									<span class="hre">查看更多</span>
 									<i class="icon-play2"></i>
-									</div>
-								</li>
-								<li class="totcount green">
-									<p class="total">
-									<countTo :startVal='startVal' :endVal='endVal' :duration='2000'></countTo>万元</p>
-									<p class="titleName">累计收料额</p>
-									<div class="bottomtitle">
-									<span class="hre">查看更多</span>
-									<i class="icon-play2"></i>
-									</div>
-								</li>
-								<li class="totcount yellow">
-									<p class="total">
-									<countTo :startVal='startVal' :endVal='endVal' :duration='2000'></countTo>万元</p>
-									<p class="titleName">累计收料额</p>
-									<div class="bottomtitle">
-									<span class="hre">查看更多</span>
-									<i class="icon-play2"></i>
-									</div>
-								</li>
-								<li class="totcount red">
-									<p class="total"><countTo :startVal='startVal' :endVal='endVal' :duration='2000'></countTo>万元</p>
-									<p class="titleName">累计收料额</p>
-									<div class="bottomtitle">
-									<span class="hre">查看更多</span>
-									<i class="icon-play2"></i>
-									</div>
-								</li>
-							</ul>
-							<yl-panelzone  class="statistical" :titleName="'付欠款统计'" :icon="'icon-stats-dots'" :heightNum="'600px'" :theme="'primary'">
-								<div slot="content">
-									<yl-loading type="l1" loadingText="加载中，请稍后..."></yl-loading>
 								</div>
-							</yl-panelzone>
-							<yl-panelzone  class="statistical" :titleName="'付欠款统计'" :icon="'icon-stats-dots'" :heightNum="'300px'" :theme="'info'" >
-								<div slot="content">
+							</li>
+							<li class="totcount green">
+								<p class="total">
+									<countTo :startVal='startVal' :endVal='endVal' :duration='2000'></countTo>万元</p>
+								<p class="titleName">累计收料额</p>
+								<div class="bottomtitle">
+									<span class="hre">查看更多</span>
+									<i class="icon-play2"></i>
+								</div>
+							</li>
+							<li class="totcount yellow">
+								<p class="total">
+									<countTo :startVal='startVal' :endVal='endVal' :duration='2000'></countTo>万元</p>
+								<p class="titleName">累计收料额</p>
+								<div class="bottomtitle">
+									<span class="hre">查看更多</span>
+									<i class="icon-play2"></i>
+								</div>
+							</li>
+							<li class="totcount red">
+								<p class="total">
+									<countTo :startVal='startVal' :endVal='endVal' :duration='2000'></countTo>万元</p>
+								<p class="titleName">累计收料额</p>
+								<div class="bottomtitle">
+									<span class="hre">查看更多</span>
+									<i class="icon-play2"></i>
+								</div>
+							</li>
+						</ul>
+						<yl-panelzone class="statistical" :titleName="'付欠款统计'" :icon="'icon-stats-dots'" :heightNum="'600px'" :theme="'primary'">
+							<div slot="content">
+								<yl-loading type="l1" loadingText="加载中，请稍后..."></yl-loading>
+							</div>
+						</yl-panelzone>
+						<yl-panelzone class="statistical" :titleName="'付欠款统计'" :icon="'icon-stats-dots'" :heightNum="'300px'" :theme="'info'">
+							<div slot="content">
 								<yl-AsyncComp></yl-AsyncComp>
-								</div>
-							</yl-panelzone>
-							<yl-panelzone  class="statistical" :titleName="'付欠款统计'" :icon="'icon-stats-dots'" :heightNum="'300px'" :theme="'danger'">
-								<div slot="content">
-								</div>
-							</yl-panelzone>
-							<yl-panelzone  class="statistical" :titleName="'付欠款统计'" :icon="'icon-stats-dots'" :heightNum="'300px'" :theme="'success'">
-								<div slot="content">
-								</div>
-							</yl-panelzone>
-							<yl-panelzone  class="statistical" :titleName="'付欠款统计'" :icon="'icon-stats-dots'" :heightNum="'300px'" :theme="'warning'">
-								<div slot="content">
-								</div>
-							</yl-panelzone>
-							<yl-panelzone  class="statistical" :titleName="'付欠款统计'" :icon="'icon-stats-dots'" :heightNum="'300px'" :theme="'warning'">
-								<div slot="content">
-								</div>
-							</yl-panelzone>
-							<yl-panelzone  class="statistical" :titleName="'付欠款统计'" :icon="'icon-stats-dots'" :heightNum="'300px'" :theme="'warning'">
-								<div slot="content">
-								</div>
-							</yl-panelzone>
-							<yl-panelzone  class="statistical" :titleName="'付欠款统计'" :icon="'icon-stats-dots'" :heightNum="'300px'" :theme="'warning'">
-								<div slot="content">
-								</div>
-							</yl-panelzone>
-
+							</div>
+						</yl-panelzone>
+						<yl-panelzone class="statistical" :titleName="'付欠款统计'" :icon="'icon-stats-dots'" :heightNum="'300px'" :theme="'danger'">
+							<div slot="content">
+							</div>
+						</yl-panelzone>
+						<yl-panelzone class="statistical" :titleName="'付欠款统计'" :icon="'icon-stats-dots'" :heightNum="'300px'" :theme="'success'">
+							<div slot="content">
+							</div>
+						</yl-panelzone>
+						<yl-panelzone class="statistical" :titleName="'付欠款统计'" :icon="'icon-stats-dots'" :heightNum="'300px'" :theme="'warning'">
+							<div slot="content">
+							</div>
+						</yl-panelzone>
+						<yl-panelzone class="statistical" :titleName="'付欠款统计'" :icon="'icon-stats-dots'" :heightNum="'300px'" :theme="'warning'">
+							<div slot="content">
+							</div>
+						</yl-panelzone>
+						<yl-panelzone class="statistical" :titleName="'付欠款统计'" :icon="'icon-stats-dots'" :heightNum="'300px'" :theme="'warning'">
+							<div slot="content">
+							</div>
+						</yl-panelzone>
+						<yl-panelzone class="statistical" :titleName="'付欠款统计'" :icon="'icon-stats-dots'" :heightNum="'300px'" :theme="'warning'">
+							<div slot="content">
+							</div>
+						</yl-panelzone>
+	
 					</div>
 					<div class="news">
-							<yl-panelzone  class="notice" :titleName="'公告通知'" :icon="'icon-bullhorn'" :heightNum="'350px'">
-								<div slot="content">
-									<div class="miantxt">
-										<p class="text"><i class="icon-play2"></i> 有钱任性沙特国王出访印尼带有钱任性沙特国王出访印尼带</p>
-										<p class="text"><i class="icon-play2"></i> 韩总统候选人李在明若当选总统</p>
-										<p class="text"><i class="icon-play2"></i> 高铁4月起涨价？这几条路线已确</p>
-										<p class="text"><i class="icon-play2"></i> 人大代表王梦恕：高铁早晚要</p>
-										<p class="text"><i class="icon-play2"></i> 留德女李洋洁遇害细节:惨叫</p>
-										<p class="text"><i class="icon-play2"></i> 人大代表：建议调整双休日</p>
-										<p class="text"><i class="icon-play2"></i> 维基解密再曝猛料 称CIA侵</p>
-										<p class="text"><i class="icon-play2"></i> 一大堆补助费用来了，快看看你</p>
-									</div>
+						<yl-panelzone class="notice" :titleName="'公告通知'" :icon="'icon-bullhorn'" :heightNum="'350px'">
+							<div slot="content">
+								<div class="miantxt">
+									<p class="text">
+										<i class="icon-play2"></i> 有钱任性沙特国王出访印尼带有钱任性沙特国王出访印尼带</p>
+									<p class="text">
+										<i class="icon-play2"></i> 韩总统候选人李在明若当选总统</p>
+									<p class="text">
+										<i class="icon-play2"></i> 高铁4月起涨价？这几条路线已确</p>
+									<p class="text">
+										<i class="icon-play2"></i> 人大代表王梦恕：高铁早晚要</p>
+									<p class="text">
+										<i class="icon-play2"></i> 留德女李洋洁遇害细节:惨叫</p>
+									<p class="text">
+										<i class="icon-play2"></i> 人大代表：建议调整双休日</p>
+									<p class="text">
+										<i class="icon-play2"></i> 维基解密再曝猛料 称CIA侵</p>
+									<p class="text">
+										<i class="icon-play2"></i> 一大堆补助费用来了，快看看你</p>
 								</div>
-							</yl-panelzone>
-							<yl-panelzone  class="measuers" :titleName="'管理办法'" :icon="'icon-book'" :heightNum="'350px'">
-								<div slot="content">
-									<div class="miantxt">
-										<p class="text"><i class="icon-play2"></i> 有钱任性沙特国王出访印尼带</p>
-										<p class="text"><i class="icon-play2"></i> 韩总统候选人李在明:若当选总统</p>
-										<p class="text"><i class="icon-play2"></i> 高铁4月起涨价？这几条路线已确</p>
-										<p class="text"><i class="icon-play2"></i> 人大代表王梦恕：高铁早晚要</p>
-										<p class="text"><i class="icon-play2"></i> 留德女李洋洁遇害细节:惨叫</p>
-										<p class="text"><i class="icon-play2"></i> 人大代表：建议调整双休日</p>
-										<p class="text"><i class="icon-play2"></i> 维基解密再曝猛料 称CIA侵</p>
-										<p class="text"><i class="icon-play2"></i> 一大堆补助费用来了，快看看你</p>
-										<p class="text"><i class="icon-play2"></i> 煤炭价格将持续下滑</p>
-									</div>
+							</div>
+						</yl-panelzone>
+						<yl-panelzone class="measuers" :titleName="'管理办法'" :icon="'icon-book'" :heightNum="'350px'">
+							<div slot="content">
+								<div class="miantxt">
+									<p class="text">
+										<i class="icon-play2"></i> 有钱任性沙特国王出访印尼带</p>
+									<p class="text">
+										<i class="icon-play2"></i> 韩总统候选人李在明:若当选总统</p>
+									<p class="text">
+										<i class="icon-play2"></i> 高铁4月起涨价？这几条路线已确</p>
+									<p class="text">
+										<i class="icon-play2"></i> 人大代表王梦恕：高铁早晚要</p>
+									<p class="text">
+										<i class="icon-play2"></i> 留德女李洋洁遇害细节:惨叫</p>
+									<p class="text">
+										<i class="icon-play2"></i> 人大代表：建议调整双休日</p>
+									<p class="text">
+										<i class="icon-play2"></i> 维基解密再曝猛料 称CIA侵</p>
+									<p class="text">
+										<i class="icon-play2"></i> 一大堆补助费用来了，快看看你</p>
+									<p class="text">
+										<i class="icon-play2"></i> 煤炭价格将持续下滑</p>
 								</div>
-							</yl-panelzone>
+							</div>
+						</yl-panelzone>
 					</div>
 				</div>
+			</div>
 		</div>
-	</div>
-   </slot>
-   </yl-panelpage>
+		</slot>
+	</yl-panelpage>
 </template>
 
 <script type="text/babel">
- import countTo from 'components/countTo';
- import template from './template';
- import loading from 'components/loading/loading'
- import error from 'components/error/Error'
+import countTo from 'components/countTo';
+import template from './template';
+import loading from 'components/loading/loading'
+import error from 'components/error/Error'
 //  import echarts from 'echarts';
 //  import china from '../common/js/china'
 
@@ -155,26 +181,26 @@
 // 		delay: 200,
 // 		timeout: 3000
 // 	});
- export default {
-		data() {
-			return {
-				startVal:0,
-				endVal:3210232,
-				getUserInfo:this.getUserInfo()
-			};
+export default {
+	data() {
+		return {
+			startVal: 0,
+			endVal: 3210232,
+			getUserInfo: this.getUserInfo()
+		};
+	},
+	methods: {
+
+	},
+	mounted() {
+	},
+	components: {
+		countTo,
+		'yl-AsyncComp': function (resolve) {
+			require(['components/loading/loading'], resolve)
 		},
-		methods: {
-			
-		},
-		mounted(){
-		},
-		components: { 
-				countTo,
-				'yl-AsyncComp':function (resolve) {
-				require(['components/loading/loading'], resolve)
-			},
-		},
-	};
+	},
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

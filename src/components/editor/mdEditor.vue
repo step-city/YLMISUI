@@ -9,7 +9,7 @@
 import 'simplemde/dist/simplemde.min.css'
 import SimpleMDE from 'simplemde'
 export default {
-  name: 'Sticky',
+  name: 'yl-mdeditor',
   props: {
     value: String,
     id: {

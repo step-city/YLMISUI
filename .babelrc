@@ -1,5 +1,8 @@
 {
-  "presets": [["es2015", {"modules": false}], "stage-2"],
-  "plugins": ["transform-runtime","transform-vue-jsx"],
+  "presets": [
+    ["es2015", {"modules": false}], // webpack 2 中需要这样配置禁用
+    "stage-2"
+  ],
+  "plugins": ["transform-runtime", "transform-vue-jsx"],
   "comments": false
 }

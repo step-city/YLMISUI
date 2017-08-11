@@ -43,6 +43,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
+        include: [resolve('src'), resolve('static/js')],
         exclude: /node_modules/
       },
       {
@@ -53,7 +54,6 @@ module.exports = {
         test: /\.css$/,
         include: [
           '/src/', //表示在src目录下的css需要编译  
-          '/node_modules/element-ui/lib/', //增加此项  
           '/yltheme/',
           '/theme/',
           '/nprogress/'

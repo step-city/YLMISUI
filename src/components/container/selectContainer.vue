@@ -36,6 +36,7 @@ import {inputModel} from 'api/inputmodel';
 import fetch from  'api/fetch';
 import { mapActions } from 'vuex';
 export default {
+    name:'yl-selectcontainer',
     data(){
         return {
              selectRows:[],

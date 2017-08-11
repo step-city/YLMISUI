@@ -6,6 +6,7 @@
 
 <script type="text/babel">
 export default {
+    name:'yl-error'
 }
 </script>
 

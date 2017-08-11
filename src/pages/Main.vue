@@ -1,92 +1,108 @@
 <template>
-<div class="main" ref="main" :style="{'width': bodyStyle.width, 'height': bodyStyle.height }">
-	<div class="header" >
-		<div class="left">
-			<span  class="logo-wrapper">
-				<img class="logo" src="../common/image/logo.png"  >
-			</span>
-			<span  class="title-wrapper">
-			</span> 
+	<div class="main" ref="main" :style="{'width': bodyStyle.width, 'height': bodyStyle.height }">
+		<div class="header">
+			<div class="left">
+				<span class="logo-wrapper">
+					<img class="logo" src="../common/image/logo.png">
+				</span>
+				<span class="title-wrapper">
+				</span>
+			</div>
+			<div class="right">
+				<ul>
+					<li v-for="item in menuAppList" :key="item.id">
+						<a class="right-item1" @click="_turnSystem(item.appCode)"></a>
+						<span>{{item.appName}}</span>
+					</li>
+					<li>
+						<a class="right-item2" @click="_goEveryWhere"></a>
+						<span>系统漫游</span>
+					</li>
+					<li>
+						<a class="right-item2" @click="_turnRole"></a>
+						<span>角色转化</span>
+					</li>
+					<li>
+						<a class="right-item3" @click="_lockScreen"></a>
+						<span>锁屏</span>
+					</li>
+					<li>
+						<a class="right-item4" @click="_loginout"></a>
+						<span>注销</span>
+					</li>
+				</ul>
+			</div>
 		</div>
-		<div class="right">
-			<ul>
-		
-				<li v-for="item in menuAppList"><a  class="right-item1"  @click="_turnSystem(item.appCode)"></a><span>{{item.appName}}</span></li>
-				<li><a  class="right-item2" @click="_goEveryWhere"></a><span>系统漫游</span></li>
-				<li><a  class="right-item2" @click="_turnRole"></a><span>角色转化</span></li>
-				<li><a  class="right-item3" @click="_lockScreen"></a><span>锁屏</span></li>
-				<li><a  class="right-item4" @click="_loginout"></a><span>注销</span></li>
-			</ul>
-		</div> 
-	</div>
-  	<div class="content" >
-			<div class="left-wrapper" :class="{  'left-wrapper-close':isClose}"  >
-			   <el-menu default-active="/home"  class="el-menu-vertical" v-loading="menuLoading" element-loading-text="菜单加载中..."   @open="_handleOpen" @close="_handleClose" unique-opened :router="true">
-					<el-menu-item index="/home" class="single"><i class="icon-home"></i>系统门户</el-menu-item>
-						<el-submenu :index="fristmenulist.name" class="el-submenu-main"   v-for="(fristmenulist,index) in menuList" :key="index">
-							<template slot="title" ><i :class="fristmenulist.icon"></i>{{fristmenulist.displayName}}</template>
-									<el-submenu :index="secondmenulist.name" class="el-submenu-item" v-for="(secondmenulist,index) in fristmenulist.items" :key="index">
-										<template slot="title"><i :class="secondmenulist.icon"></i>{{secondmenulist.displayName}}</template>
-											<el-menu-item :index="thirdmenulist.url" v-for="thirdmenulist in secondmenulist.items" :key="thirdmenulist.id">{{thirdmenulist.displayName}}</el-menu-item>
-									</el-submenu>
-					  </el-submenu>
-					  <el-menu-item index="/pages/comdemo" class="single"><i class="icon-home"></i>业务组件用例</el-menu-item>
-					  <el-menu-item index="/pages/apitest" class="single"><i class="icon-home"></i>API测试界面</el-menu-item>
+		<div class="content">
+			<div class="left-wrapper" :class="{  'left-wrapper-close':isClose}">
+				<el-menu default-active="/home" class="el-menu-vertical" v-loading="menuLoading" element-loading-text="菜单加载中..." @open="_handleOpen" @close="_handleClose" unique-opened :router="true">
+					<el-menu-item index="/home" class="single">
+						<i class="icon-home"></i>系统门户</el-menu-item>
+					<el-submenu :index="fristmenulist.name" class="el-submenu-main" v-for="(fristmenulist,index) in menuList" :key="index">
+						<template slot="title">
+							<i :class="fristmenulist.icon"></i>{{fristmenulist.displayName}}</template>
+						<el-submenu :index="secondmenulist.name" class="el-submenu-item" v-for="(secondmenulist,index) in fristmenulist.items" :key="index">
+							<template slot="title">
+								<i :class="secondmenulist.icon"></i>{{secondmenulist.displayName}}</template>
+							<el-menu-item :index="thirdmenulist.url" v-for="thirdmenulist in secondmenulist.items" :key="thirdmenulist.id">{{thirdmenulist.displayName}}</el-menu-item>
+						</el-submenu>
+					</el-submenu>
+					<el-menu-item index="/pages/comdemo" class="single">
+						<i class="icon-home"></i>业务组件用例</el-menu-item>
+					<el-menu-item index="/pages/apitest" class="single">
+						<i class="icon-home"></i>API测试界面</el-menu-item>
 					<div class="shrinkage" @click="_showMenu"></div>
 				</el-menu>
 			</div>
 			<div class="main-wrapper" :class="{'main-wrapper-expend':isClose}">
-					<div class="dynamicmodel">
-						<transition name="fade" >
-							<router-view></router-view>
-						</transition>
-					</div>
-			</div>
-	</div>
-
-	<div class="lock" v-if="isLock">
-		<div class="lockmain">
-			<div class="userimage">
-			</div>
-			<div class="locktexet" >
-				{{userInfo.realName}}
-			</div>
-			<div class="loginform">
-					<el-form  :inline="true" >
-						<el-form-item style="margin-right:0px">
-							<el-input  placeholder="请输入密码解锁"  style="width:180px" type="password"></el-input>
-							</el-form-item>
-							<el-form-item >
-									<img class="btnimg" src="../common/image/enter_icon.png" @click="_resetLogin" />
-							</el-form-item>
-					</el-form>
+				<div class="dynamicmodel">
+					<transition name="fade">
+						<router-view ></router-view>
+					</transition>
+				</div>
 			</div>
 		</div>
+	
+		<div class="lock" v-if="isLock">
+			<div class="lockmain">
+				<div class="userimage">
+				</div>
+				<div class="locktexet">
+					{{userInfo.realName}}
+				</div>
+				<div class="loginform">
+					<el-form :inline="true">
+						<el-form-item style="margin-right:0px">
+							<el-input placeholder="请输入密码解锁" style="width:180px" type="password"></el-input>
+						</el-form-item>
+						<el-form-item>
+							<img class="btnimg" src="../common/image/enter_icon.png" @click="_resetLogin" />
+						</el-form-item>
+					</el-form>
+				</div>
+			</div>
+		</div>
+	
+		<el-dialog ref="mainDialog" title="转化角色" v-model="roleFormVisible" size="tiny" top="15%" :modal-append-to-body="false" :close-on-click-modal="false">
+			<TurnRole @close="_close" v-if="roleFormVisible"></TurnRole>
+		</el-dialog>
+		<el-dialog ref="mainDialog" title="系统漫游" v-model="goEveryWhereFormVisible" size="tiny" top="15%" :modal-append-to-body="false" :close-on-click-modal="false">
+			<GoEveryWhere @close="_closeM" v-if="goEveryWhereFormVisible"></GoEveryWhere>
+		</el-dialog>
+	
+		<el-dialog ref="itemDialog" title="单据明细" v-model="ItemFormVisible" size="small" top="15%" @close="_itemClose">
+			<orderItem v-if="ItemFormVisible"></orderItem>
+		</el-dialog>
+	
 	</div>
-
-	<el-dialog ref="mainDialog" title="转化角色" v-model="roleFormVisible" size="tiny" top="15%" 
-				:modal-append-to-body="false" :close-on-click-modal="false"  >
-				<TurnRole  @close="_close"  v-if="roleFormVisible"></TurnRole>
-	</el-dialog>	
-	<el-dialog ref="mainDialog" title="系统漫游" v-model="goEveryWhereFormVisible" size="tiny" top="15%" 
-				:modal-append-to-body="false" :close-on-click-modal="false"  >
-				<GoEveryWhere  @close="_closeM"  v-if="goEveryWhereFormVisible"></GoEveryWhere>
-	</el-dialog>
-
-    <el-dialog ref="itemDialog" title="单据明细" v-model="ItemFormVisible" size="small" top="15%" 
-				@close="_itemClose" >
-				<orderItem  v-if="ItemFormVisible"></orderItem>
-	</el-dialog>
-
- </div>
-
 </template>
 
 <script type="text/babel">
-import { requestGetUserMenu,
-		 requestGetCurrentLoginInformations,
-		 requestGetMenuAppList, 
-		} from 'api/login';
+import {
+	requestGetUserMenu,
+	requestGetCurrentLoginInformations,
+	requestGetMenuAppList,
+} from 'api/login';
 import { mapGetters } from 'vuex';
 import { mapActions } from 'vuex';
 import fetch from 'api/fetch';
@@ -95,121 +111,121 @@ import TurnRole from 'pages/config/TurnRole';
 import GoEveryWhere from 'pages/config/GoEveryWhere';
 import orderItem from 'ocomponents/orderitem/orderItem'
 export default {
-		data(){
-			return{
-					isClose:false,
-					isLock:false,
-					menuList:{},
-					bodyStyle:{},
-					menuLoading:false,
-					userInfo:{},
-					roleFormVisible:false,
-					goEveryWhereFormVisible:false,
-					ItemFormVisible:false,
-					menuAppList:[],
-			};
+	data() {
+		return {
+			isClose: false,
+			isLock: false,
+			menuList: {},
+			bodyStyle: {},
+			menuLoading: false,
+			userInfo: {},
+			roleFormVisible: false,
+			goEveryWhereFormVisible: false,
+			ItemFormVisible: false,
+			menuAppList: [],
+		};
+	},
+	computed: {
+		...mapGetters(['getItem_isvisible'])
+	},
+	methods: {
+		_handleOpen(key, keyPath) {
+			//展开菜单
 		},
-		computed:{
-			 ...mapGetters([ 'getItem_isvisible' ])
+		_handleClose(key, keyPath) {
+			//关闭菜单
 		},
-		methods: {
-		    _handleOpen(key, keyPath) {
-				//展开菜单
-		    },
-		    _handleClose(key, keyPath) {
-				//关闭菜单
-		    },
-		 //锁屏
-	      _lockScreen:function(){
-				this.isLock=true;
-			              
-	      },
-		  //隐藏menu
-	      _showMenu(){
-                this.isClose=!this.isClose;
-	      },
-		  _resetLogin(){
-                this.isLock=!this.isLock;
-		  },
-		  //注销登录
-		  _loginout(){
-		        this.$confirm('确认退出系统吗?', '提示', {
-		          type: 'warning'
-		        }).then(() => {
-		          this.$router.replace('/login');
-		        }).catch(() => {
-		        });
-		  },
-		  //获取菜单列表
-		  _getMenu(){
-			  this.menuLoading=true;
-			  let params={};
-			  params.appCode=util.getCookie('appCode');
-			  if(params.appCode===""){
-				   this.$router.replace('/login');
-			  }
-			  var _this=this;
-			  requestGetUserMenu(params).then(
-				  data => {
-						if(data.success){
-							this.menuList=data.result.userMenu.items;
-						} else {
-							this.$message.error('菜单加载失败...');
-						}
-						 this.menuLoading=false;
-					}).catch(function (error) {
-							 _this.menuLoading=false;
-					});
-		  },
-		   _requestGetMenuAppList(){
-					requestGetMenuAppList().then(data => {
-						 this.menuAppList=data.result;
-					})
-			},
-			_turnSystem(code){
-				util.setCookie('appCode',code,1);
-				this.$router.push({ path:'/home'});
-				window.location.reload();
-			},
-			_turnRole(){
-				//角色转化
-				this.roleFormVisible=true;
-			},
-			_goEveryWhere(){
-				//系统漫游
-				this.goEveryWhereFormVisible=true;
-			},
-			_close(){
-				this.roleFormVisible=false;
-			},
-			_closeM(){
-				this.goEveryWhereFormVisible=false;
-			},
-			_itemClose(){
-				//明细关闭
-				this.setItem_isvisible(false);
-			},
-			 ...mapActions(['setItem_isvisible']),
+		//锁屏
+		_lockScreen: function () {
+			this.isLock = true;
 
-      },
-	  components:{
-            TurnRole,
-			GoEveryWhere,
-			orderItem,
-        },
+		},
+		//隐藏menu
+		_showMenu() {
+			this.isClose = !this.isClose;
+		},
+		_resetLogin() {
+			this.isLock = !this.isLock;
+		},
+		//注销登录
+		_loginout() {
+			this.$confirm('确认退出系统吗?', '提示', {
+				type: 'warning'
+			}).then(() => {
+				this.$router.replace('/login');
+			}).catch(() => {
+			});
+		},
+		//获取菜单列表
+		_getMenu() {
+			this.menuLoading = true;
+			let params = {};
+			params.appCode = util.getCookie('appCode');
+			if (params.appCode === "") {
+				this.$router.replace('/login');
+			}
+			var _this = this;
+			requestGetUserMenu(params).then(
+				data => {
+					if (data.success) {
+						this.menuList = data.result.userMenu.items;
+					} else {
+						this.$message.error('菜单加载失败...');
+					}
+					this.menuLoading = false;
+				}).catch(function (error) {
+					_this.menuLoading = false;
+				});
+		},
+		_requestGetMenuAppList() {
+			requestGetMenuAppList().then(data => {
+				this.menuAppList = data.result;
+			})
+		},
+		_turnSystem(code) {
+			util.setCookie('appCode', code, 1);
+			this.$router.push({ path: '/home' });
+			window.location.reload();
+		},
+		_turnRole() {
+			//角色转化
+			this.roleFormVisible = true;
+		},
+		_goEveryWhere() {
+			//系统漫游
+			this.goEveryWhereFormVisible = true;
+		},
+		_close() {
+			this.roleFormVisible = false;
+		},
+		_closeM() {
+			this.goEveryWhereFormVisible = false;
+		},
+		_itemClose() {
+			//明细关闭
+			this.setItem_isvisible(false);
+		},
+		...mapActions(['setItem_isvisible']),
+
+	},
+	components: {
+		TurnRole,
+		GoEveryWhere,
+		orderItem,
+	},
 	mounted() {
 		this._getMenu();
 		this._requestGetMenuAppList();
 	},
 	watch: {
-		 getItem_isvisible:function(val, oldVal){
-          if(val){
-            //处理
-            this.ItemFormVisible=true;
-          }else{
-			  this.ItemFormVisible=false;
-		  }
-        }
+		getItem_isvisible: function (val, oldVal) {
+			if (val) {
+				//处理
+				this.ItemFormVisible = true;
+			} else {
+				this.ItemFormVisible = false;
+			}
+		}
 	},
 }
 </script>
@@ -347,7 +363,7 @@ export default {
 				height:100%
 				overflow:auto
 				.fade-enter-active,.fade-leave-active
-					transition: opacity .3s
+					transition: opacity .3s ease
 				.fade-enter,.fade-leave-active
 					opacity: 0
 		.main-wrapper-expend

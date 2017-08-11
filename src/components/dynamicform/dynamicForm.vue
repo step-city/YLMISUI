@@ -10,6 +10,7 @@
 <script>
 import renderFormLay from './renderFormLay.js'
   export default {
+      name:'yl-dynamicForm',
     data() {
       return {
         //带tabpanel类型的form表单配置

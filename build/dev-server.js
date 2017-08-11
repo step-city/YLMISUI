@@ -3,6 +3,7 @@ require('./check-versions')()
 var config = require('../config')
 if (!process.env.NODE_ENV) {
   process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV)
+  process.noDeprecation = true
 }
 
 var opn = require('opn')
@@ -22,16 +23,16 @@ var proxyTable = config.dev.proxyTable
 
 var app = express()
 
-var appData=require('../data.json');  //依赖数据
-var apiRoutes=express.Router();  //定义express路由
+var appData = require('../data.json'); //依赖数据
+var apiRoutes = express.Router(); //定义express路由
 
-apiRoutes.get('/data',function(req,res){
+apiRoutes.get('/data', function (req, res) {
   res.json({
-    errno:0,
-    data:appData
+    errno: 0,
+    data: appData
   })
 });
-app.use('/api',apiRoutes); //启用路由
+app.use('/api', apiRoutes); //启用路由
 
 
 var compiler = webpack(webpackConfig)
@@ -48,7 +49,9 @@ var hotMiddleware = require('webpack-hot-middleware')(compiler, {
 // force page reload when html-webpack-plugin template changes
 compiler.plugin('compilation', function (compilation) {
   compilation.plugin('html-webpack-plugin-after-emit', function (data, cb) {
-    hotMiddleware.publish({ action: 'reload' })
+    hotMiddleware.publish({
+      action: 'reload'
+    })
     cb()
   })
 })
@@ -57,7 +60,9 @@ compiler.plugin('compilation', function (compilation) {
 Object.keys(proxyTable).forEach(function (context) {
   var options = proxyTable[context]
   if (typeof options === 'string') {
-    options = { target: options }
+    options = {
+      target: options
+    }
   }
   app.use(proxyMiddleware(options.filter || context, options))
 })

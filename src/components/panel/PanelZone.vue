@@ -16,6 +16,7 @@
 
 <script type="text/babel">
 export default {
+	name:'yl-panelzone',
 	data(){
 		return {
 			fullScreen:false,

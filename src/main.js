@@ -1,7 +1,5 @@
 import 'es6-promise/auto'
 import Vue from 'vue'
-
-
 import './common/stylus/index.styl'  //全局样式
 import ElementUI from 'element-ui' //ElementUI
 import locale from 'element-ui/lib/locale/lang/zh-CN'  //国际化
@@ -16,16 +14,12 @@ import NProgress from 'nprogress'//页面顶部进度条
 import 'nprogress/nprogress.css'  //进度条样式
 import router from './router'
 
-
 //根组件
 import App from './App'
 import components from './components'
 
-
-
 Vue.use(ElementUI, { locale })
 Vue.use(Vuex)
-
 
 //注册全局函数
 import globalFun from './common/js/globalFun'
@@ -33,8 +27,6 @@ import globalFun from './common/js/globalFun'
 import directive from './directive'
 //注册全局过滤器
 import  filters from './filters';
-
-
 
 import util from 'common/js/util';
 router.beforeEach((to, from, next) => {

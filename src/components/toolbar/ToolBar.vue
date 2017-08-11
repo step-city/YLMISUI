@@ -7,6 +7,7 @@
 
 <script type="text/babel">
 export default {
+    name:'yl-toolbar',
     data(){
 		return {
 		}

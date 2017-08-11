@@ -14,6 +14,7 @@
 
 <script type="text/babel">
 export default {
+    name:'yl-columnlay',
     data(){
 		return {
             isClose:false

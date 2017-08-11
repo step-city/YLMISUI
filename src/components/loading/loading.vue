@@ -18,6 +18,7 @@ import loading6 from './loading6';
 import loading7 from './loading7';
 import loading8 from './loading8';
 export default {
+  name:'yl-loading',
   props:{
     loadingText:{
       type:String,

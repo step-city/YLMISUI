@@ -1,5 +1,5 @@
 <template>
-<div class="treeSelect">
+<div class="treeSelect" v-clickoutside="handleClose">
     <el-input 
         type="text" 
         :size="size"
@@ -24,10 +24,11 @@
         </el-input>
         <el-tree 
             ref="treeSelect"
+            :accordion="OneAccordion"
             :lazy="stepByOne"  
             :default-expand-all="isexpand"  
             :data="treedata" 
-            :expand-on-click-node="false" 
+            :expand-on-click-node="true" 
             :props="defaultProps" 
             :load="loadNode"
             :filter-node-method="filterNode"
@@ -39,11 +40,13 @@
 </div>
 </template>
 
-<script type="text/babel">
+ <script type="text/babel">
+import Clickoutside from 'element-ui/src/utils/clickoutside';
 import treeMixn from 'src/mixns/tree.js';
 import util from 'common/js/util'
 export default {
-    name: 'YlTreeSelect',
+    name: 'yl-treeselect',
+    directives: { Clickoutside },
     componentName: 'YlTreeSelect',
     mixins: [treeMixn],
      data() {
@@ -56,6 +59,11 @@ export default {
       };
     },
     props:{
+        OneAccordion:{//是否每次只打开一个同级树节点展开
+                    required: false,
+                    type: Boolean,
+                    default: true,
+        },
 		treedata:{
                     type: Array,
                     default:[] 
@@ -166,6 +174,10 @@ export default {
         }
     },
     methods: {
+        //新增
+        handleClose(e){ //点击元素外面才会触发的事件(下拉树消失)
+            this.inputTreeIsVisibe=true
+        },
         handleNodeClick(result) {  
                     //点击加载 
                     this.selectNode=result;  
@@ -176,7 +188,7 @@ export default {
                             this.$emit('input',this.selectNode.id);
                             }
                     this.$emit('getCurrentNode',this.selectNode);
-                    this.inputTreeIsVisibe=true;
+                    // this.inputTreeIsVisibe=true;
                      //在此处通过递归处理node 获取全部加载情况的全称
         },
         loadNode(node, resolve){

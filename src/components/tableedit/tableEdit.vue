@@ -17,8 +17,8 @@
     </yl-onlytable>
         <div v-if="!sumRowConf.disable" class="sum-text">
             <span class="heji-title" ><i class="icon-sigma " ></i>{{sumRowConf.sumText}}</span>
-            <span class="heji-title" style="padding-left:10px;" v-for="item in sumRowConf.items"  v-if="item.capitalCol">大写金额：<span class="heji-text" v-text="getdataDX(item.sumval)"></span></span>
-            <span style="padding-left:10px;" v-for="item in sumRowConf.items" class="heji-title">{{item.text}}：<span class="heji-text">{{item.sumval}}</span></span>
+            <span class="heji-title" style="padding-left:10px;" v-for="item in sumRowConf.items" :key="item.id"  v-if="item.capitalCol">大写金额：<span class="heji-text" v-text="getdataDX(item.sumval)"></span></span>
+            <span style="padding-left:10px;" v-for="item in sumRowConf.items" :key="item.id" class="heji-title">{{item.text}}：<span class="heji-text">{{item.sumval}}</span></span>
         </div>
      </div>
 </template>
@@ -28,6 +28,7 @@ import rowComs from './rowComs';
 import util from 'common/js/util'
 import config from 'static/js/config';
 export default {
+    name:'yl-tableedit',
     data(){
         return{
              mainTableLoading:false,

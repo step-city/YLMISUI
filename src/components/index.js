@@ -1,6 +1,5 @@
 import Vue from 'vue'
 
-
 //通用工具组件
 import PanelPage  from   './panel/PanelPage';
 import PanelZone  from   './panel/PanelZone';
@@ -21,22 +20,28 @@ import error from './error/Error'
 import mdEditor from './editor/mdEditor'
 import VueQuillEditor from 'vue-quill-editor'
 
-//注册全局组件
-Vue.component('yl-panelpage', PanelPage)  
-Vue.component('yl-panelzone', PanelZone) 
-Vue.component('yl-toolbar', ToolBar) 
-Vue.component('yl-columnlay', ColumnLay) 
-Vue.component('yl-layout', Layout) 
-Vue.component('yl-treeselect', TreeSelect)   
-Vue.component('yl-table', Table)
-Vue.component('yl-onlytable', OnlyTable)
-Vue.component('yl-tableedit', tableEdit)
-Vue.component('yl-selectcontainer', selectContainer)
-Vue.component('yl-querycontainer', queryContainer)
-Vue.component('yl-renderComs', renderComs)
-Vue.component('yl-dynamicForm', dynamicForm)
-Vue.component('yl-loading', loading)
-Vue.component('yl-error', error)
-//Vue.component('yl-jsoneditor', jsonEditor)
-Vue.component('yl-mdeditor', mdEditor)
+const components = [
+  PanelPage,
+  PanelZone,
+  ToolBar,
+  ColumnLay,
+  TreeSelect,
+  Layout,
+  Table,
+  OnlyTable,
+  tableEdit,
+  selectContainer,
+  queryContainer,
+  renderComs,
+  dynamicForm,
+  loading,
+  error,
+  mdEditor
+];
+
+components.map(component => {
+        //注册全局组件    
+    Vue.component(component.name, component);
+  });
+   
 Vue.use(VueQuillEditor)

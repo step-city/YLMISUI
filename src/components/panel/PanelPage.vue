@@ -29,6 +29,7 @@
 </template>
 <script type="text/babel">
 export default {
+	name:'yl-panelpage',
 	data(){
 		return {
 			fullScreen:false,
