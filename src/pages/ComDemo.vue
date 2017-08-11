@@ -122,7 +122,7 @@
 
    <div id="jsonEditor">
         <p>jsonEditor组件示例</p>
-        <yl-jsoneditor v-model="jsonText" ></yl-jsoneditor>
+        <!-- <yl-jsoneditor v-model="jsonText" ></yl-jsoneditor> -->
         <p>jsonEditor:{{jsonText}}</p>
     </div>
   <div id="quilleditor">

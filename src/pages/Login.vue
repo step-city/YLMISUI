@@ -98,7 +98,7 @@ export default {
 								this.$message.warning('用户名输入有误！');
 							} else if (result.error === "InvalidPassword") {
 								this.$message.warning('密码输入有误！');
-							} else {
+							} else { 
 								this.$message.error('登录有误:' + result.error);
 							}
 						} else {

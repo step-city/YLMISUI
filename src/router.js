@@ -1,89 +1,87 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-         const testComponent = resolve => require(['./testComponent.vue'], resolve);
-
-      //业务组件
-        const Login = resolve => require(['./pages/Login.vue'], resolve);
-        const Main = resolve => require(['./pages/Main.vue'], resolve);
-        const Home = resolve => require(['./pages/Home.vue'], resolve);
-        const Page404 = resolve => require(['./pages/Page404.vue'], resolve);
-    //业务组件    Api测试
-        // const ApiTest = resolve => require(['./pages/ApiTest.vue'], resolve);
-        // const ComDemo = resolve => require(['./pages/ComDemo.vue'], resolve);
-    //系统管理--系统设置
-        const MenuApp = resolve => require(['./pages/operation/systeminfo/menuapp/MenuApp.vue'], resolve);
-        const MenuItem = resolve => require(['./pages/operation/systeminfo/menuitem/MenuItem.vue'], resolve);
-        const Functions = resolve => require(['./pages/operation/systeminfo/function/Function.vue'], resolve);
-        const Role = resolve => require(['./pages/operation/systeminfo/role/Role.vue'], resolve);
-        const RoleApproveState = resolve => require(['./pages/operation/systeminfo/roleapprovestate/RoleApproveState.vue'], resolve);
-      //系统管理--系统数据
-        const DataDictionaryDetail = resolve => require(['./pages/operation/systeminfo/datadictionary/DataDictionaryDetail.vue'], resolve);
-        const ProvinceCity = resolve => require(['./pages/operation/systeminfo/provincecity/ProvinceCity.vue'], resolve);
-        const CodeRule = resolve => require(['./pages/operation/systeminfo/coderule/CodeRule.vue'], resolve);
-      //基础管理--基础数据
-        const Parameters = resolve => require(['./pages/operation/basic/parameters/Parameters.vue'], resolve);
-        const Organize = resolve => require(['./pages/operation/basic/organize/Organize.vue'], resolve);
-        const User = resolve => require(['./pages/operation/basic/user/User.vue'], resolve);
-        const TableColConfig = resolve => require(['./pages/operation/basic/tableconfig/TableColConfig.vue'], resolve);
-        const AttachMent = resolve => require(['./pages/operation/basic/attachment/AttachMent.vue'], resolve);
-      //基础管理--业务数据
-        const StandardGH = resolve => require(['./pages/operation/basic/standardgh/StandardGH.vue'], resolve);
-        const TemplateGH = resolve => require(['./pages/operation/basic/templategh/TemplateGH.vue'], resolve);
-        const GH = resolve => require(['./pages/operation/basic/gh/GH.vue'], resolve);
-        const MaterialClass = resolve => require(['./pages/operation/basic/materialclass/MaterialClass.vue'], resolve);
-        const Material = resolve => require(['./pages/operation/basic/material/Material.vue'], resolve);
-        const CommonMaterial = resolve => require(['./pages/operation/basic/commonmaterial/CommonMaterial.vue'], resolve);
-        const Supplier = resolve => require(['./pages/operation/basic/supplier/Supplier.vue'], resolve);
-        const Labour = resolve => require(['./pages/operation/basic/labour/Labour.vue'], resolve);
-        const CommonLabour = resolve => require(['./pages/operation/basic/commonlabour/CommonLabour.vue'], resolve);
-        const CommonSupplier = resolve => require(['./pages/operation/basic/commonsupplier/CommonSupplier.vue'], resolve);
-        const StorePostion = resolve => require(['./pages/operation/basic/storepostion/StorePostion.vue'], resolve);
-        const Project = resolve => require(['./pages/operation/basic/project/Project.vue'], resolve);
-        const CommonDataDictionary = resolve => require(['./pages/operation/basic/commondatadictionary/CommonDataDictionary.vue'], resolve);    
-    //物资系统---消耗物资管理
-        const singleTable = resolve => require(['./pages/config/singletable/singleTable.vue'], resolve);
-        const GHInitialPlan = resolve => require(['./pages/materials/ghinitialplan/GHInitialPlan.vue'], resolve);
-        const RequistionInOrder = resolve => require(['./pages/materials/requistionin/RequistionInOrder.vue'], resolve);
-        const ContractOrder = resolve => require(['./pages/materials/contract/ContractOrder.vue'], resolve);
-        const ReceiveOrder = resolve => require(['./pages/materials/receive/ReceiveOrder.vue'], resolve);
-        const CurrentStore = resolve => require(['./pages/materials/currentstore/CurrentStore.vue'], resolve);
-        const DeliveryOrder = resolve => require(['./pages/materials/delivery/DeliveryOrder.vue'], resolve);
-        const AllotOrder = resolve => require(['./pages/materials/allot/AllotOrder.vue'], resolve);
-        const ScrapOrder = resolve => require(['./pages/materials/scrap/ScrapOrder.vue'], resolve);
-        const RequistionInCheckOrder = resolve => require(['./pages/materials/requistionincheck/RequistionInCheckOrder.vue'], resolve);
-        const RequistionInNotQulifyOrder = resolve => require(['./pages/materials/requistioninnotqulify/RequistionInNotQulifyOrder.vue'], resolve);
-        const AllotInOrder = resolve => require(['./pages/materials/allotin/AllotInOrder.vue'], resolve);
-        const PurchasePlanOrder = resolve => require(['./pages/materials/purchaseplan/PurchasePlanOrder.vue'], resolve);
-        const ChargeAgainst = resolve => require(['./pages/materials/chargeagainst/ChargeAgainst.vue'], resolve);
-    //  成本分析-- 消耗物资成本分析
-        const GHMonthConsumptionOrder = resolve => require(['./pages/materials/ghmonthconsumption/GHMonthConsumptionOrder.vue'], resolve);
-        const LabourMonthConsumptionOrder = resolve => require(['./pages/materials/labourmonthconsumption/LabourMonthConsumptionOrder.vue'], resolve);
-    //半成品管理--钢筋加工管理
-        const SFProductMaterialsOrder = resolve => require(['./pages/materials/sfproductmaterials/SFProductMaterialsOrder.vue'], resolve);
-        const OriginalMaterialReceiveOrder = resolve => require(['./pages/materials/originalmaterialreceive/OriginalMaterialReceiveOrder.vue'], resolve);
-        const SFProductRegistrationOrder = resolve => require(['./pages/materials/sfproductregistration/SFProductRegistrationOrder.vue'], resolve);
-        const SFProductDeliveryOrder = resolve => require(['./pages/materials/sfproductdelivery/SFProductDeliveryOrder.vue'], resolve);
-        const OriginalMaterialCheck = resolve => require(['./pages/materials/originalmaterialcheck/OriginalMaterialCheck.vue'], resolve);
-        const SFProductCheck = resolve => require(['./pages/materials/sfproductcheck/SFProductCheck.vue'], resolve);
-        const SFProductScrap = resolve => require(['./pages/materials/sfproductscrap/SFProductScrap.vue'], resolve);
-        const SFProductInventory = resolve => require(['./pages/materials/sfproductinventory/SFProductInventory.vue'], resolve);
-    //半成品管理--混凝土管理      
-        const LopItem = resolve => require(['./pages/materials/lopitem/LopItem.vue'], resolve);
-        const WeightItem = resolve => require(['./pages/materials/weightitem/WeightItem.vue'], resolve);
-        const ConcreteAnalyze = resolve => require(['./pages/materials/concreteanalyze/ConcreteAnalyze.vue'], resolve);
-        const MaterialAnalyze = resolve => require(['./pages/materials/materialanalyze/MaterialAnalyze.vue'], resolve);
-        const StoreCheckOrder = resolve => require(['./pages/materials/storecheck/StoreCheckOrder.vue'], resolve);
-        const ConcreteDeliveryOrder = resolve => require(['./pages/materials/concretedelivery/ConcreteDeliveryOrder.vue'], resolve);
-    //周转材料管理--摊销管理
-        const TurnoverReceiveOrder = resolve => require(['./pages/materials/turnoverreceive/TurnoverReceiveOrder.vue'], resolve);
-        const TurnoverAllotInOrder = resolve => require(['./pages/materials/turnoverallotIn/TurnoverAllotInOrder.vue'], resolve);
-        const TurnoverAmortizeRuleOrder = resolve => require(['./pages/materials/turnoveramortizerule/TurnoverAmortizeRuleOrder.vue'], resolve);
-        const TurnoverAmortizeOrder = resolve => require(['./pages/materials/turnoveramortize/TurnoverAmortizeOrder.vue'], resolve);
-        const TurnoverScrapOrder = resolve => require(['./pages/materials/turnoverscrap/TurnoverScrapOrder.vue'], resolve);
-        const TurnoverAllotOrder = resolve => require(['./pages/materials/turnoverallot/TurnoverAllotOrder.vue'], resolve);
-        const TurnoverSellOrder = resolve => require(['./pages/materials/turnoversell/TurnoverSellOrder.vue'], resolve);
-        const TurnoverInventory = resolve => require(['./pages/materials/turnoverinventory/TurnoverInventory.vue'], resolve);
+//业务组件
+const Login = resolve => require(['./pages/Login.vue'], resolve);
+const Main = resolve => require(['./pages/Main.vue'], resolve);
+const Home = resolve => require(['./pages/Home.vue'], resolve);
+const Page404 = resolve => require(['./pages/Page404.vue'], resolve);
+//业务组件    Api测试
+const ApiTest = resolve => require(['./pages/ApiTest.vue'], resolve);
+const ComDemo = resolve => require(['./pages/ComDemo.vue'], resolve);
+//系统管理--系统设置
+const MenuApp = resolve => require(['./pages/operation/systeminfo/menuapp/MenuApp.vue'], resolve);
+const MenuItem = resolve => require(['./pages/operation/systeminfo/menuitem/MenuItem.vue'], resolve);
+const Functions = resolve => require(['./pages/operation/systeminfo/function/Function.vue'], resolve);
+const Role = resolve => require(['./pages/operation/systeminfo/role/Role.vue'], resolve);
+const RoleApproveState = resolve => require(['./pages/operation/systeminfo/roleapprovestate/RoleApproveState.vue'], resolve);
+//系统管理--系统数据
+const DataDictionaryDetail = resolve => require(['./pages/operation/systeminfo/datadictionary/DataDictionaryDetail.vue'], resolve);
+const ProvinceCity = resolve => require(['./pages/operation/systeminfo/provincecity/ProvinceCity.vue'], resolve);
+const CodeRule = resolve => require(['./pages/operation/systeminfo/coderule/CodeRule.vue'], resolve);
+//基础管理--基础数据
+const Parameters = resolve => require(['./pages/operation/basic/parameters/Parameters.vue'], resolve);
+const Organize = resolve => require(['./pages/operation/basic/organize/Organize.vue'], resolve);
+const User = resolve => require(['./pages/operation/basic/user/User.vue'], resolve);
+const TableColConfig = resolve => require(['./pages/operation/basic/tableconfig/TableColConfig.vue'], resolve);
+const AttachMent = resolve => require(['./pages/operation/basic/attachment/AttachMent.vue'], resolve);
+//基础管理--业务数据
+const StandardGH = resolve => require(['./pages/operation/basic/standardgh/StandardGH.vue'], resolve);
+const TemplateGH = resolve => require(['./pages/operation/basic/templategh/TemplateGH.vue'], resolve);
+const GH = resolve => require(['./pages/operation/basic/gh/GH.vue'], resolve);
+const MaterialClass = resolve => require(['./pages/operation/basic/materialclass/MaterialClass.vue'], resolve);
+const Material = resolve => require(['./pages/operation/basic/material/Material.vue'], resolve);
+const CommonMaterial = resolve => require(['./pages/operation/basic/commonmaterial/CommonMaterial.vue'], resolve);
+const Supplier = resolve => require(['./pages/operation/basic/supplier/Supplier.vue'], resolve);
+const Labour = resolve => require(['./pages/operation/basic/labour/Labour.vue'], resolve);
+const CommonLabour = resolve => require(['./pages/operation/basic/commonlabour/CommonLabour.vue'], resolve);
+const CommonSupplier = resolve => require(['./pages/operation/basic/commonsupplier/CommonSupplier.vue'], resolve);
+const StorePostion = resolve => require(['./pages/operation/basic/storepostion/StorePostion.vue'], resolve);
+const Project = resolve => require(['./pages/operation/basic/project/Project.vue'], resolve);
+const CommonDataDictionary = resolve => require(['./pages/operation/basic/commondatadictionary/CommonDataDictionary.vue'], resolve);    
+//物资系统---消耗物资管理
+const singleTable = resolve => require(['./pages/config/singletable/singleTable.vue'], resolve);
+const GHInitialPlan = resolve => require(['./pages/materials/ghinitialplan/GHInitialPlan.vue'], resolve);
+const RequistionInOrder = resolve => require(['./pages/materials/requistionin/RequistionInOrder.vue'], resolve);
+const ContractOrder = resolve => require(['./pages/materials/contract/ContractOrder.vue'], resolve);
+const ReceiveOrder = resolve => require(['./pages/materials/receive/ReceiveOrder.vue'], resolve);
+const CurrentStore = resolve => require(['./pages/materials/currentstore/CurrentStore.vue'], resolve);
+const DeliveryOrder = resolve => require(['./pages/materials/delivery/DeliveryOrder.vue'], resolve);
+const AllotOrder = resolve => require(['./pages/materials/allot/AllotOrder.vue'], resolve);
+const ScrapOrder = resolve => require(['./pages/materials/scrap/ScrapOrder.vue'], resolve);
+const RequistionInCheckOrder = resolve => require(['./pages/materials/requistionincheck/RequistionInCheckOrder.vue'], resolve);
+const RequistionInNotQulifyOrder = resolve => require(['./pages/materials/requistioninnotqulify/RequistionInNotQulifyOrder.vue'], resolve);
+const AllotInOrder = resolve => require(['./pages/materials/allotin/AllotInOrder.vue'], resolve);
+const PurchasePlanOrder = resolve => require(['./pages/materials/purchaseplan/PurchasePlanOrder.vue'], resolve);
+const ChargeAgainst = resolve => require(['./pages/materials/chargeagainst/ChargeAgainst.vue'], resolve);
+//  成本分析-- 消耗物资成本分析
+const GHMonthConsumptionOrder = resolve => require(['./pages/materials/ghmonthconsumption/GHMonthConsumptionOrder.vue'], resolve);
+const LabourMonthConsumptionOrder = resolve => require(['./pages/materials/labourmonthconsumption/LabourMonthConsumptionOrder.vue'], resolve);
+//半成品管理--钢筋加工管理
+const SFProductMaterialsOrder = resolve => require(['./pages/materials/sfproductmaterials/SFProductMaterialsOrder.vue'], resolve);
+const OriginalMaterialReceiveOrder = resolve => require(['./pages/materials/originalmaterialreceive/OriginalMaterialReceiveOrder.vue'], resolve);
+const SFProductRegistrationOrder = resolve => require(['./pages/materials/sfproductregistration/SFProductRegistrationOrder.vue'], resolve);
+const SFProductDeliveryOrder = resolve => require(['./pages/materials/sfproductdelivery/SFProductDeliveryOrder.vue'], resolve);
+const OriginalMaterialCheck = resolve => require(['./pages/materials/originalmaterialcheck/OriginalMaterialCheck.vue'], resolve);
+const SFProductCheck = resolve => require(['./pages/materials/sfproductcheck/SFProductCheck.vue'], resolve);
+const SFProductScrap = resolve => require(['./pages/materials/sfproductscrap/SFProductScrap.vue'], resolve);
+const SFProductInventory = resolve => require(['./pages/materials/sfproductinventory/SFProductInventory.vue'], resolve);
+//半成品管理--混凝土管理      
+const LopItem = resolve => require(['./pages/materials/lopitem/LopItem.vue'], resolve);
+const WeightItem = resolve => require(['./pages/materials/weightitem/WeightItem.vue'], resolve);
+const ConcreteAnalyze = resolve => require(['./pages/materials/concreteanalyze/ConcreteAnalyze.vue'], resolve);
+const MaterialAnalyze = resolve => require(['./pages/materials/materialanalyze/MaterialAnalyze.vue'], resolve);
+const StoreCheckOrder = resolve => require(['./pages/materials/storecheck/StoreCheckOrder.vue'], resolve);
+const ConcreteDeliveryOrder = resolve => require(['./pages/materials/concretedelivery/ConcreteDeliveryOrder.vue'], resolve);
+//周转材料管理--摊销管理
+const TurnoverReceiveOrder = resolve => require(['./pages/materials/turnoverreceive/TurnoverReceiveOrder.vue'], resolve);
+const TurnoverAllotInOrder = resolve => require(['./pages/materials/turnoverallotIn/TurnoverAllotInOrder.vue'], resolve);
+const TurnoverAmortizeRuleOrder = resolve => require(['./pages/materials/turnoveramortizerule/TurnoverAmortizeRuleOrder.vue'], resolve);
+const TurnoverAmortizeOrder = resolve => require(['./pages/materials/turnoveramortize/TurnoverAmortizeOrder.vue'], resolve);
+const TurnoverScrapOrder = resolve => require(['./pages/materials/turnoverscrap/TurnoverScrapOrder.vue'], resolve);
+const TurnoverAllotOrder = resolve => require(['./pages/materials/turnoverallot/TurnoverAllotOrder.vue'], resolve);
+const TurnoverSellOrder = resolve => require(['./pages/materials/turnoversell/TurnoverSellOrder.vue'], resolve);
+const TurnoverInventory = resolve => require(['./pages/materials/turnoverinventory/TurnoverInventory.vue'], resolve);
 Vue.use(Router);
 export default new Router({
 routes:[
@@ -133,10 +131,10 @@ routes:[
         { path: 'project', component: Project, name: '项目信息维护' },
         { path: 'commondatadictionary', component: CommonDataDictionary, name: '项目部数据字典' },
     //业务组件    Api测试
-        // { path: 'comdemo', component: ComDemo, name: '测试页面' },
-        // { path: 'apitest', component: ApiTest,name: 'api测试页面'  },
+        { path: 'comdemo', component: ComDemo, name: '测试页面' },
+        { path: 'apitest', component: ApiTest,name: 'api测试页面'  },
 
-        { path: 'apitest', component: testComponent,name: '测试页面'  },
+        // { path: 'apitest', component: resolve => require(['./testComponent.vue'], resolve),name: 'api测试页面'  },
         {path: '*',component: Page404} 
           ]
         },

@@ -46,6 +46,8 @@ import store from '../vuex/store'
 import util from 'common/js/util'
 import axios from 'axios';
 import config from 'static/js/config';
+import utils from '../common/js/workerFormatter'
+
 export default {
 		data() {
 		      return {
@@ -104,10 +106,12 @@ export default {
 			     },
 			     _resetForm(){
 					 this.$refs.formModel.resetFields();
-			    },
+				}
 		     },
 			 mounted(){
 				 this.token=store.getters.getToken;
+				 let result=this.data;
+				 this.data=utils.jsonToHTML(result,'测试');
 			 }
 	}
 </script>
