@@ -1,7 +1,7 @@
 <template>
-<div>
- 我只是个模板
-</div>
+    <div>
+         我只是个模板 
+    </div>
 </template>
 
 <script type="text/babel">

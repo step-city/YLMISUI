@@ -4,4 +4,5 @@
 - [指令](/directive)
 - [全局函数](/globalFun)
 - [过滤器](/ocomponents)
+- [模块配置说明](/moduleConf)
 - [MarkDown语法](/markDown)   

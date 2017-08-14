@@ -1,8 +1,5 @@
-/**
- * Adapted the code in to order to run in a web worker. 
- * 
- * Original author: Benjamin Hollis
- */
+
+<script type="text/javascript">
 
 function htmlEncode(t) {
 	return t != null ? t.toString().replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;") : '';
@@ -67,8 +64,8 @@ function objectToHTML(json) {
 	return output;
 }
 
-export default {
-	jsonToHTML:function(json, fnName) {
+
+	function jsonToHTML(json, fnName) {
 	var output = '';
 	if (fnName)
 		output += '<div class="callback-function">' + fnName + '(</div>';
@@ -79,7 +76,7 @@ export default {
 		output += '<div class="callback-function">)</div>';
 	return output;
 }
-} 
+
 
 addEventListener("message", function(event) {
 	var object;
@@ -88,7 +85,7 @@ addEventListener("message", function(event) {
 	} catch (e) {
 		postMessage({
 			error : true
-		});
+		}); 
 		return;
 	}
 	postMessage({
@@ -97,3 +94,9 @@ addEventListener("message", function(event) {
 	});
 }, false);
 
+export default
+{
+ jsonToHTML
+}
+
+</script>
